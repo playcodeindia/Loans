@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PlayCode Loans & Finance</title>
+    <title>PlayCode Loans & Finance Pro - Complete Financial Solution</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
@@ -39,7 +39,6 @@
             --error-500: #EF4444;
             --info-500: #3B82F6;
             
-            /* Semantic colors */
             --color-primary: var(--primary-600);
             --color-primary-hover: var(--primary-700);
             --color-primary-active: var(--primary-800);
@@ -54,11 +53,9 @@
             --color-shadow: rgba(0, 0, 0, 0.3);
             --color-overlay: rgba(0, 0, 0, 0.5);
             
-            /* Typography */
             --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             --font-family-display: 'Google Sans', var(--font-family-base);
             
-            /* Typography scale */
             --text-xs: 0.75rem;
             --text-sm: 0.875rem;
             --text-base: 1rem;
@@ -68,14 +65,12 @@
             --text-3xl: 1.875rem;
             --text-4xl: 2.25rem;
             
-            /* Font weights */
             --font-light: 300;
             --font-regular: 400;
             --font-medium: 500;
             --font-semibold: 600;
             --font-bold: 700;
             
-            /* Spacing */
             --space-1: 0.25rem;
             --space-2: 0.5rem;
             --space-3: 0.75rem;
@@ -87,7 +82,6 @@
             --space-12: 3rem;
             --space-16: 4rem;
             
-            /* Border radius */
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
@@ -95,19 +89,16 @@
             --radius-2xl: 1.5rem;
             --radius-full: 9999px;
             
-            /* Shadows */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             
-            /* Transitions */
             --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
             
-            /* Z-index */
             --z-dropdown: 1000;
             --z-modal: 1050;
             --z-popover: 1070;
@@ -133,7 +124,6 @@
             line-height: 1.5;
         }
 
-        /* Google Play Logo Styles */
         .google-play-logo {
             width: 40px;
             height: 40px;
@@ -155,7 +145,6 @@
             margin-left: 4px;
         }
 
-        /* Homepage */
         .homepage-container {
             display: flex;
             flex-direction: column;
@@ -228,7 +217,6 @@
             font-weight: var(--font-regular);
         }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -264,11 +252,6 @@
             background: linear-gradient(135deg, var(--color-primary-hover), var(--primary-800));
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:active:not(:disabled) {
-            transform: translateY(0);
-            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
@@ -333,7 +316,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Auth Pages */
         .auth-container {
             display: none;
             justify-content: center;
@@ -392,7 +374,6 @@
             background-clip: text;
         }
 
-        /* Form Styles */
         .form-group {
             margin-bottom: var(--space-6);
         }
@@ -424,12 +405,6 @@
             background: var(--color-surface);
         }
 
-        .form-control::placeholder {
-            color: var(--color-on-surface-variant);
-            opacity: 0.6;
-        }
-
-        /* Dashboard */
         .dashboard {
             display: none;
             min-height: 100vh;
@@ -448,7 +423,7 @@
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -492,12 +467,11 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: var(--space-6);
         }
 
-        /* Credit Score Section */
         .credit-score-section {
             background: var(--color-surface);
             border-radius: var(--radius-2xl);
@@ -523,6 +497,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: var(--space-6);
+            flex-wrap: wrap;
+            gap: var(--space-4);
         }
 
         .credit-score-value {
@@ -572,10 +548,9 @@
             margin-bottom: var(--space-2);
         }
 
-        /* Loan Options */
         .loan-options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: var(--space-6);
             margin-bottom: var(--space-8);
         }
@@ -619,10 +594,6 @@
             transform: scaleX(1);
         }
 
-        .loan-option-card:active {
-            transform: translateY(-2px);
-        }
-
         .loan-option-icon {
             width: 64px;
             height: 64px;
@@ -650,7 +621,6 @@
             margin-bottom: var(--space-4);
         }
 
-        /* Form Steps */
         .form-steps-container {
             display: none;
             min-height: 100vh;
@@ -724,7 +694,7 @@
 
         .form-step {
             display: none;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 0 var(--space-6);
         }
@@ -768,10 +738,9 @@
             flex: 1;
         }
 
-        /* Plan Options */
         .plan-options {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: var(--space-3);
             margin: var(--space-4) 0;
         }
@@ -780,7 +749,7 @@
             background: var(--color-surface-variant);
             border: 2px solid var(--color-border);
             border-radius: var(--radius-lg);
-            padding: var(--space-4);
+            padding: var(--space-3);
             text-align: center;
             cursor: pointer;
             transition: all var(--transition-base);
@@ -801,16 +770,15 @@
 
         .plan-months {
             font-weight: var(--font-bold);
-            font-size: var(--text-lg);
+            font-size: var(--text-base);
             margin-bottom: var(--space-1);
         }
 
         .plan-interest {
-            font-size: var(--text-sm);
+            font-size: var(--text-xs);
             opacity: 0.9;
         }
 
-        /* EMI Calculator */
         .emi-calculator {
             background: var(--color-surface-variant);
             border-radius: var(--radius-lg);
@@ -841,7 +809,32 @@
             color: var(--color-on-surface);
         }
 
-        /* Success Screen */
+        .processing-fee-bar {
+            background: linear-gradient(135deg, var(--warning-500), #D97706);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin: var(--space-4) 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+
+        .processing-fee-bar label {
+            font-weight: var(--font-medium);
+            color: white;
+        }
+
+        .processing-fee-bar input {
+            background: white;
+            border: none;
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+            width: 150px;
+            font-weight: var(--font-medium);
+        }
+
         .success-screen {
             display: none;
             flex-direction: column;
@@ -890,31 +883,24 @@
             border-bottom: 1px solid var(--color-border);
         }
 
-        .success-detail-item:last-child {
-            border-bottom: none;
-        }
-
-        /* My Loans Page */
         .my-loans-page {
             display: none;
             min-height: 100vh;
             background: var(--color-background);
         }
 
-        /* Tables */
         .table-container {
             background: var(--color-surface);
             border-radius: var(--radius-xl);
             border: 1px solid var(--color-border);
             overflow: hidden;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 600px;
+            min-width: 700px;
         }
 
         thead {
@@ -1015,10 +1001,6 @@
             color: white;
         }
 
-        .action-btn-primary:hover {
-            background: var(--color-primary-hover);
-        }
-
         .action-btn-success {
             background: var(--success-500);
             color: white;
@@ -1034,7 +1016,6 @@
             color: white;
         }
 
-        /* Admin Panel - FIXED LAYOUT */
         .admin-panel {
             display: none;
             min-height: 100vh;
@@ -1053,11 +1034,13 @@
         }
 
         .admin-header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-3);
         }
 
         .admin-title {
@@ -1070,6 +1053,12 @@
             background-clip: text;
         }
 
+        .admin-panel-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-6);
+        }
+
         .section-title {
             font-size: var(--text-2xl);
             font-weight: var(--font-semibold);
@@ -1077,7 +1066,36 @@
             margin-bottom: var(--space-6);
         }
 
-        /* Modal */
+        .admin-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+        }
+
+        .admin-stat-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            border: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .admin-stat-value {
+            font-size: var(--text-2xl);
+            font-weight: var(--font-bold);
+            color: var(--primary-500);
+        }
+
+        .admin-table-container {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            overflow-x: auto;
+            margin-bottom: var(--space-8);
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -1110,7 +1128,7 @@
             background: var(--color-surface);
             border-radius: var(--radius-2xl);
             width: 100%;
-            max-width: 440px;
+            max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: var(--shadow-2xl);
@@ -1156,6 +1174,7 @@
             cursor: pointer;
             color: var(--color-on-surface-variant);
             transition: all var(--transition-fast);
+            font-size: 1.5rem;
         }
 
         .modal-close:hover {
@@ -1175,7 +1194,6 @@
             justify-content: flex-end;
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: var(--space-6);
@@ -1216,39 +1234,6 @@
             border-left: 4px solid var(--info-500);
         }
 
-        .toast-icon {
-            font-size: 1.25rem;
-        }
-
-        .toast-content {
-            flex: 1;
-        }
-
-        .toast-title {
-            font-weight: var(--font-medium);
-            color: var(--color-on-surface);
-            margin-bottom: var(--space-1);
-        }
-
-        .toast-message {
-            color: var(--color-on-surface-variant);
-            font-size: var(--text-sm);
-        }
-
-        .toast-close {
-            background: none;
-            border: none;
-            color: var(--color-on-surface-variant);
-            cursor: pointer;
-            padding: var(--space-1);
-            border-radius: var(--radius-sm);
-        }
-
-        .toast-close:hover {
-            background: var(--color-surface-variant);
-        }
-
-        /* Loading - FIXED VIRTUAL LOADING */
         .loading-overlay {
             display: none;
             position: fixed;
@@ -1298,190 +1283,53 @@
             text-align: center;
         }
 
-        /* Responsive Design */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-2 { gap: var(--space-2); }
+        .gap-3 { gap: var(--space-3); }
+        .gap-4 { gap: var(--space-4); }
+        .text-center { text-align: center; }
+        .text-sm { font-size: var(--text-sm); }
+        .text-xs { font-size: var(--text-xs); }
+        .font-semibold { font-weight: var(--font-semibold); }
+        .font-medium { font-weight: var(--font-medium); }
+        .text-muted { color: var(--color-on-surface-variant); }
+        .text-success { color: var(--success-500); }
+        .text-warning { color: var(--warning-500); }
+        .mt-1 { margin-top: var(--space-1); }
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .p-4 { padding: var(--space-4); }
+        .w-full { width: 100%; }
+        .hidden { display: none; }
+
         @media (max-width: 768px) {
-            :root {
-                --space-4: 0.75rem;
-                --space-6: 1rem;
-                --space-8: 1.5rem;
-                --space-12: 2rem;
+            .admin-header-content {
+                flex-direction: column;
+                align-items: flex-start;
             }
-
-            .homepage-box,
-            .auth-box {
-                padding: var(--space-6);
-                margin: var(--space-4);
-            }
-
-            .container {
-                padding: var(--space-4);
-            }
-
-            .loan-options-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header, .admin-header {
-                padding: var(--space-3) var(--space-4);
-            }
-
-            .modal-content {
-                margin: var(--space-4);
-                padding: 0;
-                max-height: 85vh;
-            }
-
-            .steps-progress {
-                gap: var(--space-4);
-            }
-
-            .plan-options {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .step-actions {
                 flex-direction: column;
             }
-
-            .action-buttons {
+            .processing-fee-bar {
                 flex-direction: column;
+                align-items: stretch;
             }
-
-            .action-btn {
+            .processing-fee-bar input {
                 width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .auth-header h1,
-            .homepage-title {
-                font-size: var(--text-xl);
-            }
-
-            .modal-content {
-                border-radius: var(--radius-xl);
-            }
-
-            .emi-breakdown {
-                grid-template-columns: 1fr;
-            }
-
-            .user-menu {
+            .credit-score-header {
                 flex-direction: column;
-                align-items: flex-end;
-                gap: var(--space-2);
+                align-items: flex-start;
             }
-
-            .user-info {
-                text-align: right;
-            }
-
-            .steps-progress {
-                gap: var(--space-2);
-            }
-
-            .step-label {
-                font-size: var(--text-xs);
-            }
-        }
-
-        /* iOS-specific optimizations */
-        @supports (-webkit-touch-callout: none) {
-            .homepage-container,
-            .auth-container {
-                min-height: -webkit-fill-available;
-            }
-
-            input, select {
-                font-size: 16px;
-            }
-
-            .modal {
-                padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-            }
-        }
-
-        /* Touch-friendly improvements */
-        input, button, select, .loan-option-card, .plan-option {
-            min-height: 44px;
-            touch-action: manipulation;
-        }
-
-        /* Utility Classes */
-        .text-center { text-align: center; }
-        .text-right { text-align: right; }
-        .text-left { text-align: left; }
-
-        .text-sm { font-size: var(--text-sm); }
-        .text-base { font-size: var(--text-base); }
-        .text-lg { font-size: var(--text-lg); }
-        .text-xl { font-size: var(--text-xl); }
-
-        .font-light { font-weight: var(--font-light); }
-        .font-regular { font-weight: var(--font-regular); }
-        .font-medium { font-weight: var(--font-medium); }
-        .font-semibold { font-weight: var(--font-semibold); }
-        .font-bold { font-weight: var(--font-bold); }
-
-        .text-primary { color: var(--color-primary); }
-        .text-success { color: var(--success-500); }
-        .text-warning { color: var(--warning-500); }
-        .text-error { color: var(--error-500); }
-        .text-muted { color: var(--color-on-surface-variant); }
-
-        .mt-1 { margin-top: var(--space-1); }
-        .mt-2 { margin-top: var(--space-2); }
-        .mt-3 { margin-top: var(--space-3); }
-        .mt-4 { margin-top: var(--space-4); }
-        .mt-6 { margin-top: var(--space-6); }
-
-        .mb-1 { margin-bottom: var(--space-1); }
-        .mb-2 { margin-bottom: var(--space-2); }
-        .mb-3 { margin-bottom: var(--space-3); }
-        .mb-4 { margin-bottom: var(--space-4); }
-        .mb-6 { margin-bottom: var(--space-6); }
-        .mb-8 { margin-bottom: var(--space-8); }
-
-        .py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
-        .py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
-        .py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
-
-        .flex { display: flex; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .justify-center { justify-content: center; }
-        .justify-between { justify-content: space-between; }
-        .gap-2 { gap: var(--space-2); }
-        .gap-3 { gap: var(--space-3); }
-        .gap-4 { gap: var(--space-4); }
-        .gap-6 { gap: var(--space-6); }
-
-        .w-full { width: 100%; }
-        .hidden { display: none; }
-        .block { display: block; }
-
-        /* Admin Panel Layout - FIXED */
-        .admin-panel-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--space-6);
-        }
-
-        .admin-controls {
-            display: flex;
-            gap: var(--space-4);
-            margin-bottom: var(--space-6);
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .admin-table-container {
-            background: var(--color-surface);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--color-border);
-            overflow: hidden;
-            overflow-x: auto;
-            margin-bottom: var(--space-8);
         }
     </style>
 </head>
@@ -1505,23 +1353,21 @@
                     <div class="google-play-logo">
                         <div class="play-triangle"></div>
                     </div>
-                    <div class="homepage-logo-text">PlayCode Loans</div>
+                    <div class="homepage-logo-text">PlayCode Loans Pro</div>
                 </div>
-                <h1 class="homepage-title">Financial Solutions</h1>
-                <p class="homepage-subtitle">Get instant loans and finance for your needs</p>
+                <h1 class="homepage-title">Smart Financial Solutions</h1>
+                <p class="homepage-subtitle">Instant loans with flexible repayment options</p>
             </div>
             
             <div class="flex flex-col gap-6">
-                <a href="https://playcodeagent-bit.github.io/Balance/" 
-                   class="btn btn-primary" 
-                   target="_blank">
-                    <span class="material-icons-round">manage_accounts</span>
-                    <span class="btn-text">Go to Management</span>
-                </a>
+                <button class="btn btn-primary" onclick="showLoanLogin()">
+                    <span class="material-icons-round">account_balance_wallet</span>
+                    <span class="btn-text">Apply for Loan</span>
+                </button>
                 
-                <button class="btn btn-secondary" onclick="showLoanLogin()">
-                    <span class="material-icons-round">money</span>
-                    <span class="btn-text">Take a Loan</span>
+                <button class="btn btn-secondary" onclick="showAdminLoginModal()">
+                    <span class="material-icons-round">admin_panel_settings</span>
+                    <span class="btn-text">Admin Access</span>
                 </button>
             </div>
         </div>
@@ -1535,10 +1381,10 @@
                     <div class="google-play-logo">
                         <div class="play-triangle"></div>
                     </div>
-                    <div class="auth-logo-text">PlayCode Loans</div>
+                    <div class="auth-logo-text">PlayCode Loans Pro</div>
                 </div>
-                <h1>Welcome to Loans</h1>
-                <p class="auth-subtitle">Sign in to apply for loans and finance</p>
+                <h1>Welcome Back</h1>
+                <p class="auth-subtitle">Sign in to access your loan account</p>
             </div>
             
             <div class="form-group">
@@ -1558,13 +1404,6 @@
             <button class="btn btn-secondary btn-block" onclick="showHomepage()">
                 <span class="btn-text">Back to Home</span>
             </button>
-            
-            <div class="text-center mt-6">
-                <button class="btn btn-secondary" onclick="showAdminLoginModal()">
-                    <span class="material-icons-round">admin_panel_settings</span>
-                    <span>Admin Access</span>
-                </button>
-            </div>
         </div>
     </div>
 
@@ -1576,7 +1415,7 @@
                     <div class="google-play-logo">
                         <div class="play-triangle"></div>
                     </div>
-                    <div class="logo-text">PlayCode Loans</div>
+                    <div class="logo-text">PlayCode Loans Pro</div>
                 </div>
                 
                 <div class="user-menu">
@@ -1588,8 +1427,9 @@
                         <span class="material-icons-round">receipt_long</span>
                         My Loans
                     </button>
-                    <button class="btn btn-icon" onclick="logout()">
+                    <button class="btn btn-secondary btn-small" onclick="logout()">
                         <span class="material-icons-round">logout</span>
+                        Logout
                     </button>
                 </div>
             </div>
@@ -1597,10 +1437,10 @@
         
         <div class="container">
             <!-- Credit Score Section -->
-            <div class="credit-score-section">
+            <div class="credit-score-section" id="creditScoreSection">
                 <div class="credit-score-header">
                     <div>
-                        <h3 class="text-lg font-semibold">Credit Score</h3>
+                        <h3 class="font-semibold">Credit Score</h3>
                         <p class="text-sm text-muted">Based on your loan history</p>
                     </div>
                     <div class="credit-score-value" id="creditScoreValue">283</div>
@@ -1628,22 +1468,22 @@
             <div class="loan-options-grid">
                 <div class="loan-option-card" onclick="startPersonalLoan()">
                     <div class="loan-option-icon">
-                        <span class="material-icons-round">personal_injury</span>
+                        <span class="material-icons-round">person</span>
                     </div>
                     <h3 class="loan-option-title">Personal Loan</h3>
                     <p class="loan-option-description">
-                        Get instant personal loans for your personal needs with flexible repayment options.
+                        Get instant personal loans for your needs with flexible repayment options.
                     </p>
                     <button class="btn btn-primary">Apply Now</button>
                 </div>
                 
                 <div class="loan-option-card" onclick="startBusinessFinance()">
                     <div class="loan-option-icon">
-                        <span class="material-icons-round">business_center</span>
+                        <span class="material-icons-round">business</span>
                     </div>
                     <h3 class="loan-option-title">Business Finance</h3>
                     <p class="loan-option-description">
-                        Finance for purchasing goods and business needs with competitive interest rates.
+                        Finance for business needs with competitive interest rates.
                     </p>
                     <button class="btn btn-primary">Apply Now</button>
                 </div>
@@ -1653,9 +1493,7 @@
 
     <!-- Form Steps -->
     <div id="formSteps" class="form-steps-container">
-        <div class="steps-progress" id="stepsProgress">
-            <!-- Steps will be added by JavaScript -->
-        </div>
+        <div class="steps-progress" id="stepsProgress"></div>
         
         <div class="container">
             <!-- Step 1: Personal Information -->
@@ -1683,13 +1521,7 @@
                     
                     <div class="form-group">
                         <label class="form-label">Age</label>
-                        <input type="number" id="appAge" class="form-control" placeholder="Enter your age" min="1" max="100" required onchange="checkAge()">
-                        <div id="parentConcern" class="mt-2 hidden">
-                            <p class="text-warning text-sm">
-                                <span class="material-icons-round" style="font-size: 16px; vertical-align: middle;">warning</span>
-                                Parent/Guardian consent required for applicants under 18
-                            </p>
-                        </div>
+                        <input type="number" id="appAge" class="form-control" placeholder="Enter your age" min="1" max="100" required>
                     </div>
                     
                     <div class="form-group">
@@ -1699,7 +1531,7 @@
                     
                     <div class="form-group">
                         <label class="form-label">Phone Number</label>
-                        <input type="tel" id="appPhone" class="form-control" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+                        <input type="tel" id="appPhone" class="form-control" placeholder="Enter 10-digit mobile number" required>
                     </div>
                     
                     <div class="form-group">
@@ -1724,8 +1556,7 @@
                     
                     <div class="form-group">
                         <label class="form-label">4-digit PIN</label>
-                        <input type="password" id="appPin" class="form-control" placeholder="Enter 4-digit PIN" maxlength="4" pattern="\d{4}" required>
-                        <p class="text-xs text-muted mt-1">Enter the same PIN used for your PlayCode account</p>
+                        <input type="password" id="appPin" class="form-control" placeholder="Enter 4-digit PIN" maxlength="4" required>
                     </div>
                 </div>
                 
@@ -1749,14 +1580,18 @@
                         <p id="amountLimit" class="text-sm text-muted mt-1">Maximum amount based on your credit score: ₹<span id="maxAmount">1000</span></p>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label">Select Tenure</label>
-                        <div class="plan-options" id="tenureOptions">
-                            <!-- Options will be added by JavaScript -->
-                        </div>
+                    <!-- Processing Fee Bar (Agent Decidable) -->
+                    <div class="processing-fee-bar">
+                        <label>Processing Fee (Agent Decided):</label>
+                        <input type="number" id="processingFeeAmount" class="form-control" placeholder="Enter fee amount" value="0" step="50" oninput="updateEMICalculator()">
+                        <span class="text-white text-sm">Fee will be added to total</span>
                     </div>
                     
-                    <!-- EMI Calculator -->
+                    <div class="form-group">
+                        <label class="form-label">Select Tenure</label>
+                        <div class="plan-options" id="tenureOptions"></div>
+                    </div>
+                    
                     <div class="emi-calculator">
                         <h4 class="font-semibold mb-4">EMI Breakdown</h4>
                         <div class="emi-breakdown">
@@ -1769,6 +1604,10 @@
                                 <div class="emi-value" id="totalInterest">₹0</div>
                             </div>
                             <div class="emi-item">
+                                <div class="emi-label">Processing Fee</div>
+                                <div class="emi-value" id="processingFeeDisplay">₹0</div>
+                            </div>
+                            <div class="emi-item">
                                 <div class="emi-label">Total Payable</div>
                                 <div class="emi-value" id="totalPayable">₹0</div>
                             </div>
@@ -1778,18 +1617,10 @@
                     <div class="bg-surface-variant rounded-lg p-4 mt-6">
                         <p class="text-sm font-medium mb-2">⚠️ Important Notice:</p>
                         <ul class="text-sm space-y-1 text-muted">
-                            <li class="flex items-center gap-2">
-                                <span class="material-icons-round" style="font-size: 16px;">schedule</span>
-                                <span>EMI must be paid by 2nd of every month</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="material-icons-round" style="font-size: 16px;">warning</span>
-                                <span>Late payment (after 5th) charges ₹20 + principal amount</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="material-icons-round" style="font-size: 16px;">percent</span>
-                                <span>Interest rates: 1-3 Months (6.5%), 6-12 Months (8%)</span>
-                            </li>
+                            <li>• EMI must be paid by 2nd of every month</li>
+                            <li>• Late payment (after 5th) charges ₹50 + principal amount</li>
+                            <li>• Interest rates: 1M(8%), 2M(10%), 3M(15%), 6M(16%), 8M(16%), 12M(18%)</li>
+                            <li>• Processing fee is non-refundable</li>
                         </ul>
                     </div>
                 </div>
@@ -1806,38 +1637,16 @@
     <div id="successScreen" class="success-screen">
         <div class="success-box">
             <div class="success-icon">
-                <span class="material-icons-round">check</span>
+                <span class="material-icons-round">check_circle</span>
             </div>
             
             <h2 class="text-2xl font-bold mb-2">Loan Application Submitted!</h2>
             <p class="text-muted mb-6">Your loan application has been submitted for approval</p>
             
-            <div class="success-details">
-                <div class="success-detail-item">
-                    <span>Loan Amount:</span>
-                    <span class="font-semibold" id="successAmount">₹0</span>
-                </div>
-                <div class="success-detail-item">
-                    <span>Tenure:</span>
-                    <span class="font-semibold" id="successTenure">0 Months</span>
-                </div>
-                <div class="success-detail-item">
-                    <span>Monthly EMI:</span>
-                    <span class="font-semibold" id="successEMI">₹0</span>
-                </div>
-                <div class="success-detail-item">
-                    <span>Due Date:</span>
-                    <span class="font-semibold">2nd of every month</span>
-                </div>
-            </div>
-            
-            <p class="text-success font-medium mb-6">
-                <span class="material-icons-round" style="vertical-align: middle;">hourglass_empty</span>
-                Waiting for admin approval
-            </p>
+            <div class="success-details" id="successDetails"></div>
             
             <button class="btn btn-primary w-full" onclick="backToDashboard()">
-                <span class="btn-text">Back to Dashboard</span>
+                Back to Dashboard
             </button>
         </div>
     </div>
@@ -1858,8 +1667,9 @@
                         <span class="material-icons-round">arrow_back</span>
                         Dashboard
                     </button>
-                    <button class="btn btn-icon" onclick="logout()">
+                    <button class="btn btn-secondary btn-small" onclick="logout()">
                         <span class="material-icons-round">logout</span>
+                        Logout
                     </button>
                 </div>
             </div>
@@ -1867,7 +1677,6 @@
         
         <div class="container">
             <h2 class="section-title">My Loan History</h2>
-            
             <div class="table-container">
                 <table>
                     <thead>
@@ -1882,15 +1691,13 @@
                             <th>Applied Date</th>
                         </tr>
                     </thead>
-                    <tbody id="myLoansTable">
-                        <!-- Loans will be loaded here -->
-                    </tbody>
+                    <tbody id="myLoansTable"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- Admin Panel - FIXED LAYOUT -->
+    <!-- Admin Panel -->
     <div id="adminPanel" class="admin-panel">
         <div class="admin-header">
             <div class="admin-header-content">
@@ -1901,15 +1708,15 @@
                     <div class="admin-title">Admin Dashboard</div>
                 </div>
                 <div class="flex gap-3">
-                    <button class="btn btn-secondary" onclick="showSettlementModal()">
+                    <button class="btn btn-secondary btn-small" onclick="showSettlementModal()">
                         <span class="material-icons-round">payments</span>
                         Settlement
                     </button>
-                    <button class="btn btn-secondary" onclick="showCreditScoreModal()">
+                    <button class="btn btn-secondary btn-small" onclick="showCreditScoreModal()">
                         <span class="material-icons-round">score</span>
                         Credit Score
                     </button>
-                    <button class="btn btn-danger" onclick="logoutAdmin()">
+                    <button class="btn btn-danger btn-small" onclick="logoutAdmin()">
                         <span class="material-icons-round">logout</span>
                         Logout
                     </button>
@@ -1918,8 +1725,27 @@
         </div>
         
         <div class="admin-panel-content">
-            <h2 class="section-title">All Loan Applications</h2>
+            <!-- Admin Stats -->
+            <div class="admin-stats-grid" id="adminStats">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-value" id="totalLoansCount">0</div>
+                    <div class="text-muted text-sm">Total Loans</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-value" id="pendingLoansCount">0</div>
+                    <div class="text-muted text-sm">Pending Approval</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-value" id="activeLoansCount">0</div>
+                    <div class="text-muted text-sm">Active Loans</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-value" id="totalDisbursed">₹0</div>
+                    <div class="text-muted text-sm">Total Disbursed</div>
+                </div>
+            </div>
             
+            <h2 class="section-title">All Loan Applications</h2>
             <div class="admin-table-container">
                 <table>
                     <thead>
@@ -1929,21 +1755,19 @@
                             <th>Name</th>
                             <th>Amount</th>
                             <th>Tenure</th>
+                            <th>Interest</th>
                             <th>Remaining EMI</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="allLoansTable">
-                        <!-- All loans will be loaded here -->
-                    </tbody>
+                    <tbody id="allLoansTable"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
     <!-- Modals -->
-    <!-- Admin Login Modal -->
     <div id="adminLoginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1953,18 +1777,16 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label">Admin PIN Code</label>
-                    <input type="password" id="adminPinCode" class="form-control" placeholder="Enter admin PIN code" autocomplete="off">
-                    <p class="text-xs text-muted mt-1">Enter the secure admin PIN code to access admin panel</p>
+                    <input type="password" id="adminPinCode" class="form-control" placeholder="Enter admin PIN code">
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('adminLoginModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="adminLogin()">Login as Admin</button>
+                <button class="btn btn-primary" onclick="adminLogin()">Login</button>
             </div>
         </div>
     </div>
 
-    <!-- Clear EMI Modal -->
     <div id="clearEMIModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1974,11 +1796,11 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label">Payment Amount</label>
-                    <input type="number" id="emiPaymentAmount" class="form-control" placeholder="Enter payment amount" readonly>
+                    <input type="number" id="emiPaymentAmount" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Late Fee (if applicable)</label>
-                    <input type="number" id="lateFeeAmount" class="form-control" placeholder="Late fee if paid after 5th" value="20">
+                    <input type="number" id="lateFeeAmount" class="form-control" value="50">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Payment Method</label>
@@ -1989,8 +1811,7 @@
                     </select>
                 </div>
                 <div class="bg-surface-variant rounded-lg p-4">
-                    <p class="text-sm font-medium mb-2">Loan Details:</p>
-                    <p class="text-sm" id="loanDetailsText">Loading...</p>
+                    <p class="text-sm font-medium mb-2" id="loanDetailsText">Loading...</p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -2000,7 +1821,6 @@
         </div>
     </div>
 
-    <!-- Foreclose Loan Modal -->
     <div id="forecloseModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -2010,23 +1830,18 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label">Foreclosure Amount</label>
-                    <input type="number" id="foreclosureAmount" class="form-control" placeholder="Enter foreclosure amount" readonly>
+                    <input type="number" id="foreclosureAmount" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Discount (if applicable)</label>
-                    <input type="number" id="foreclosureDiscount" class="form-control" placeholder="Enter discount amount" value="0">
+                    <input type="number" id="foreclosureDiscount" class="form-control" value="0" oninput="updateForeclosureAmount()">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Final Amount</label>
-                    <input type="number" id="finalForeclosureAmount" class="form-control" placeholder="Final amount" readonly>
+                    <input type="number" id="finalForeclosureAmount" class="form-control" readonly>
                 </div>
                 <div class="bg-surface-variant rounded-lg p-4">
-                    <p class="text-sm font-medium mb-2">Loan Details:</p>
-                    <p class="text-sm" id="foreclosureLoanDetails">Loading...</p>
-                    <p class="text-xs text-warning mt-2">
-                        <span class="material-icons-round" style="font-size: 14px; vertical-align: middle;">warning</span>
-                        Warning: This action cannot be undone. Loan will be marked as Completed.
-                    </p>
+                    <p class="text-sm font-medium mb-2" id="foreclosureLoanDetails">Loading...</p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -2036,7 +1851,6 @@
         </div>
     </div>
 
-    <!-- Settlement Modal -->
     <div id="settlementModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -2060,10 +1874,6 @@
                         <option value="6">6 Months</option>
                     </select>
                 </div>
-                <div class="bg-surface-variant rounded-lg p-4 mt-4">
-                    <p class="text-sm font-medium mb-2">⚠️ Important Note:</p>
-                    <p class="text-sm text-muted">Settlement के बाद user के balance में कोई पैसा नहीं जोड़ा जाएगा। केवल loan का status "Settled" होगा।</p>
-                </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('settlementModal')">Cancel</button>
@@ -2072,7 +1882,6 @@
         </div>
     </div>
 
-    <!-- Credit Score Modal -->
     <div id="creditScoreModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -2084,19 +1893,21 @@
                     <label class="form-label">Account Number</label>
                     <input type="text" id="manageAccountNo" class="form-control" placeholder="Enter account number">
                 </div>
+                <div id="accountInfoDisplay" class="bg-surface-variant rounded-lg p-4 mb-4 hidden">
+                    <p><strong>Account Holder:</strong> <span id="displayAccountName">-</span></p>
+                    <p><strong>Current Balance:</strong> ₹<span id="displayAccountBalance">0</span></p>
+                    <p><strong>Current Credit Score:</strong> <span id="displayAccountScore">-</span></p>
+                </div>
                 <div class="form-group">
                     <label class="form-label">New Credit Score</label>
                     <input type="number" id="newCreditScore" class="form-control" placeholder="Enter new score" min="100" max="800">
-                    <p class="text-xs text-muted mt-1">Credit score range: 100-800</p>
                 </div>
                 <div class="bg-surface-variant rounded-lg p-4 mt-4">
                     <p class="text-sm font-medium mb-2">Score Guidelines:</p>
-                    <ul class="text-sm text-muted space-y-1">
+                    <ul class="text-sm text-muted">
                         <li>• 100-500: ₹1,000 loan limit</li>
                         <li>• 500-600: ₹5,000 loan limit</li>
                         <li>• 600-800: ₹20,000 loan limit</li>
-                        <li>• Loan complete: +100 score</li>
-                        <li>• Late payment: -50 score</li>
                     </ul>
                 </div>
             </div>
@@ -2106,7 +1917,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // Firebase Configuration
         const firebaseConfig = {
@@ -2116,11 +1926,9 @@
             projectId: "playcodesetup",
             storageBucket: "playcodesetup.firebasestorage.app",
             messagingSenderId: "548277697840",
-            appId: "1:548277697840:web:df6c2524d22ca93d089cf5",
-            measurementId: "G-S44Y26B9F5"
+            appId: "1:548277697840:web:df6c2524d22ca93d089cf5"
         };
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
@@ -2129,66 +1937,55 @@
         let currentLoanType = '';
         let currentStep = 1;
         let selectedTenure = null;
+        let selectedInterest = null;
         let loanApplicationData = {};
         let creditScore = 283;
         let userBalance = 0;
         let currentLoanId = null;
         let currentLoanDetails = null;
 
-        // Toast Notification System
+        // Interest Rates Configuration
+        const interestRates = {
+            1: 8,
+            2: 10,
+            3: 15,
+            6: 16,
+            8: 16,
+            12: 18
+        };
+
+        // Toast System
         function showToast(message, type = 'info', duration = 4000) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `toast toast-${type}`;
-            
-            const icons = {
-                success: 'check_circle',
-                error: 'error',
-                warning: 'warning',
-                info: 'info'
-            };
-            
+            const icons = { success: 'check_circle', error: 'error', warning: 'warning', info: 'info' };
             toast.innerHTML = `
                 <span class="material-icons-round toast-icon">${icons[type]}</span>
-                <div class="toast-content">
-                    <div class="toast-title">${type.charAt(0).toUpperCase() + type.slice(1)}</div>
-                    <div class="toast-message">${message}</div>
-                </div>
+                <div class="toast-content"><div class="toast-title">${type.charAt(0).toUpperCase() + type.slice(1)}</div><div class="toast-message">${message}</div></div>
                 <button class="toast-close" onclick="this.parentElement.remove()">×</button>
             `;
-            
             container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 10);
-            
+            setTimeout(() => toast.classList.add('show'), 10);
             setTimeout(() => {
                 if (toast.parentElement) {
                     toast.classList.remove('show');
-                    setTimeout(() => {
-                        if (toast.parentElement) {
-                            toast.remove();
-                        }
-                    }, 300);
+                    setTimeout(() => toast.remove(), 300);
                 }
             }, duration);
         }
 
-        // Loading Overlay Functions
         function showLoading(message = 'Loading...') {
             const overlay = document.getElementById('loadingOverlay');
-            const text = overlay.querySelector('.loading-text');
-            text.textContent = message;
+            overlay.querySelector('.loading-text').textContent = message;
             overlay.classList.add('show');
         }
 
         function hideLoading() {
-            const overlay = document.getElementById('loadingOverlay');
-            overlay.classList.remove('show');
+            document.getElementById('loadingOverlay').classList.remove('show');
         }
 
-        // Navigation Functions
+        // Navigation
         function showHomepage() {
             document.getElementById('homepage').style.display = 'flex';
             document.getElementById('loanLogin').style.display = 'none';
@@ -2202,7 +1999,6 @@
         function showLoanLogin() {
             document.getElementById('homepage').style.display = 'none';
             document.getElementById('loanLogin').style.display = 'flex';
-            document.getElementById('loanDashboard').style.display = 'none';
         }
 
         function showLoanDashboard() {
@@ -2225,18 +2021,12 @@
             showLoanDashboard();
         }
 
-        // Login Functions
+        // Login with Real-time Listener
         async function loginToLoans() {
             const accNo = document.getElementById('loginAccountNo').value.trim();
             const sarNo = document.getElementById('loginSarNo').value.trim();
-
-            if (!accNo || !sarNo) {
-                showToast('Please enter both account number and SAR number', 'error');
-                return;
-            }
-
+            if (!accNo || !sarNo) { showToast('Please enter both account number and SAR number', 'error'); return; }
             showLoading('Signing in...');
-            
             try {
                 const snapshot = await database.ref('users/' + accNo).once('value');
                 if (snapshot.exists()) {
@@ -2244,160 +2034,103 @@
                     if (user.sarNo === sarNo) {
                         currentUser = user;
                         userBalance = user.balance || 0;
-                        await loadUserData();
-                        
-                        // Simulate loading delay for better UX
-                        setTimeout(() => {
-                            hideLoading();
-                            showLoanDashboard();
-                            showToast(`Welcome back, ${user.fullName}!`, 'success');
-                        }, 1500);
-                    } else {
-                        hideLoading();
-                        showToast('Invalid SAR number!', 'error');
-                    }
-                } else {
-                    hideLoading();
-                    showToast('Account not found!', 'error');
-                }
-            } catch (error) {
-                hideLoading();
-                showToast('Error: ' + error.message, 'error');
-            }
+                        await calculateCreditScore();
+                        updateCreditScoreDisplay();
+                        // Set up real-time listeners
+                        database.ref('users/' + currentUser.accNo).on('value', (snap) => {
+                            if (snap.exists()) {
+                                currentUser = snap.val();
+                                userBalance = currentUser.balance || 0;
+                                document.getElementById('dashboardUserName').textContent = currentUser.fullName;
+                                document.getElementById('dashboardBalance').textContent = userBalance;
+                            }
+                        });
+                        database.ref('loans').orderByChild('accNo').equalTo(currentUser.accNo).on('value', () => {
+                            calculateCreditScore();
+                            updateCreditScoreDisplay();
+                        });
+                        setTimeout(() => { hideLoading(); showLoanDashboard(); showToast(`Welcome back, ${user.fullName}!`, 'success'); }, 1000);
+                    } else { hideLoading(); showToast('Invalid SAR number!', 'error'); }
+                } else { hideLoading(); showToast('Account not found!', 'error'); }
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
-        function logout() {
-            currentUser = null;
-            showHomepage();
-        }
-
-        // Load User Data
-        async function loadUserData() {
-            if (currentUser) {
-                document.getElementById('dashboardUserName').textContent = currentUser.fullName;
-                document.getElementById('dashboardBalance').textContent = userBalance;
-                
-                await calculateCreditScore();
-                updateCreditScoreDisplay();
-                
-                // Listen for balance updates
-                database.ref('users/' + currentUser.accNo + '/balance').on('value', (snapshot) => {
-                    if (snapshot.exists()) {
-                        userBalance = snapshot.val();
-                        document.getElementById('dashboardBalance').textContent = userBalance;
-                    }
-                });
-            }
-        }
+        function logout() { currentUser = null; showHomepage(); }
 
         async function calculateCreditScore() {
+            if (!currentUser) return;
             try {
                 const snapshot = await database.ref('loans').orderByChild('accNo').equalTo(currentUser.accNo).once('value');
+                let completedLoans = 0, latePayments = 0;
                 if (snapshot.exists()) {
-                    let completedLoans = 0;
-                    let latePayments = 0;
-                    
                     snapshot.forEach(child => {
                         const loan = child.val();
                         if (loan.status === 'Completed') completedLoans++;
-                        if (loan.latePayments && loan.latePayments > 0) {
-                            latePayments += loan.latePayments;
-                        }
+                        if (loan.latePayments) latePayments += loan.latePayments;
                     });
-                    
-                    creditScore = 283;
-                    creditScore += (completedLoans * 100);
-                    creditScore -= (latePayments * 50);
-                    creditScore = Math.max(100, Math.min(800, creditScore));
                 }
-            } catch (error) {
-                console.error('Error calculating credit score:', error);
-            }
+                creditScore = 283 + (completedLoans * 100) - (latePayments * 50);
+                creditScore = Math.max(100, Math.min(800, creditScore));
+            } catch (error) { console.error('Error calculating credit score:', error); }
         }
 
         function updateCreditScoreDisplay() {
             document.getElementById('creditScoreValue').textContent = creditScore;
-            
             const percentage = ((creditScore - 100) / 700) * 100;
             document.getElementById('creditScoreFill').style.width = percentage + '%';
-            
             let limit = 1000;
             if (creditScore >= 500 && creditScore < 600) limit = 5000;
             if (creditScore >= 600 && creditScore <= 800) limit = 20000;
-            
             document.getElementById('creditLimitAmount').textContent = `₹${limit.toLocaleString()}`;
             document.getElementById('maxAmount').textContent = limit;
         }
 
-        // Loan Application Flow
-        function startPersonalLoan() {
-            currentLoanType = 'personal';
-            startLoanApplication();
+        function getCreditLimit() {
+            if (creditScore >= 600) return 20000;
+            if (creditScore >= 500) return 5000;
+            return 1000;
         }
 
-        function startBusinessFinance() {
-            currentLoanType = 'business';
-            startLoanApplication();
-        }
+        // Loan Application Flow
+        function startPersonalLoan() { currentLoanType = 'personal'; startLoanApplication(); }
+        function startBusinessFinance() { currentLoanType = 'business'; startLoanApplication(); }
 
         function startLoanApplication() {
             document.getElementById('loanDashboard').style.display = 'none';
             document.getElementById('formSteps').style.display = 'block';
-            
             if (currentUser) {
                 document.getElementById('appAccountNo').value = currentUser.accNo;
                 document.getElementById('appSarNo').value = currentUser.sarNo;
                 document.getElementById('appFullName').value = currentUser.fullName;
             }
-            
             initSteps();
             showStep(1);
         }
 
         function initSteps() {
-            const steps = [
-                { number: 1, label: 'Personal Info' },
-                { number: 2, label: 'PIN Verification' },
-                { number: 3, label: 'Loan Details' }
-            ];
-            
+            const steps = [{ number: 1, label: 'Personal Info' }, { number: 2, label: 'PIN Verification' }, { number: 3, label: 'Loan Details' }];
             const progress = document.getElementById('stepsProgress');
             progress.innerHTML = '';
-            
             steps.forEach(step => {
                 const stepDiv = document.createElement('div');
                 stepDiv.className = `step ${step.number === 1 ? 'active' : ''}`;
-                stepDiv.innerHTML = `
-                    <div class="step-circle">${step.number}</div>
-                    <div class="step-label">${step.label}</div>
-                `;
+                stepDiv.innerHTML = `<div class="step-circle">${step.number}</div><div class="step-label">${step.label}</div>`;
                 progress.appendChild(stepDiv);
             });
         }
 
         function showStep(stepNumber) {
             currentStep = stepNumber;
-            
             const steps = document.querySelectorAll('.step');
             steps.forEach((step, index) => {
                 step.classList.remove('active', 'completed');
-                if (index + 1 === stepNumber) {
-                    step.classList.add('active');
-                } else if (index + 1 < stepNumber) {
-                    step.classList.add('completed');
-                }
+                if (index + 1 === stepNumber) step.classList.add('active');
+                else if (index + 1 < stepNumber) step.classList.add('completed');
             });
-            
             const formSteps = document.querySelectorAll('.form-step');
-            formSteps.forEach(step => {
-                step.classList.remove('active');
-            });
+            formSteps.forEach(step => step.classList.remove('active'));
             document.getElementById(`step${stepNumber}`).classList.add('active');
-            
-            if (stepNumber === 3) {
-                initTenureOptions();
-                updateEMICalculator();
-            }
+            if (stepNumber === 3) { initTenureOptions(); updateEMICalculator(); }
         }
 
         function nextStep() {
@@ -2405,694 +2138,359 @@
                 const age = parseInt(document.getElementById('appAge').value);
                 const address = document.getElementById('appAddress').value.trim();
                 const phone = document.getElementById('appPhone').value.trim();
-                
-                if (!age || age < 1) {
-                    showToast('Please enter valid age', 'error');
-                    return;
-                }
-                if (!address) {
-                    showToast('Please enter address', 'error');
-                    return;
-                }
-                if (!phone || !/^\d{10}$/.test(phone)) {
-                    showToast('Please enter valid 10-digit phone number', 'error');
-                    return;
-                }
-                
+                if (!age || age < 1) { showToast('Please enter valid age', 'error'); return; }
+                if (!address) { showToast('Please enter address', 'error'); return; }
+                if (!phone || !/^\d{10}$/.test(phone)) { showToast('Please enter valid 10-digit phone number', 'error'); return; }
                 loanApplicationData = {
                     accNo: document.getElementById('appAccountNo').value,
                     sarNo: document.getElementById('appSarNo').value,
                     name: document.getElementById('appFullName').value,
-                    age: age,
-                    address: address,
-                    phone: phone,
+                    age: age, address: address, phone: phone,
                     upi: document.getElementById('appUpi').value.trim(),
                     loanType: currentLoanType
                 };
             }
-            
-            if (currentStep < 3) {
-                showStep(currentStep + 1);
-            }
+            if (currentStep < 3) showStep(currentStep + 1);
         }
 
-        function prevStep() {
-            if (currentStep > 1) {
-                showStep(currentStep - 1);
-            }
-        }
-
-        function checkAge() {
-            const age = parseInt(document.getElementById('appAge').value);
-            const parentConcern = document.getElementById('parentConcern');
-            
-            if (age < 18) {
-                parentConcern.classList.remove('hidden');
-            } else {
-                parentConcern.classList.add('hidden');
-            }
-        }
+        function prevStep() { if (currentStep > 1) showStep(currentStep - 1); }
 
         function verifyPIN() {
             const pin = document.getElementById('appPin').value;
-            if (!pin || pin.length !== 4) {
-                showToast('Please enter a valid 4-digit PIN', 'error');
-                return;
-            }
-            
-            if (pin !== currentUser.pin) {
-                showToast('Invalid PIN!', 'error');
-                return;
-            }
-            
+            if (!pin || pin.length !== 4) { showToast('Please enter a valid 4-digit PIN', 'error'); return; }
+            if (pin !== currentUser.pin) { showToast('Invalid PIN!', 'error'); return; }
             nextStep();
         }
 
         function initTenureOptions() {
             const container = document.getElementById('tenureOptions');
             container.innerHTML = '';
-            
-            const tenures = [
-                { months: 1, interest: 6.5 },
-                { months: 2, interest: 6.5 },
-                { months: 3, interest: 6.5 },
-                { months: 6, interest: 8 },
-                { months: 8, interest: 8 },
-                { months: 12, interest: 8 }
-            ];
-            
-            tenures.forEach(tenure => {
+            const tenures = [1, 2, 3, 6, 8, 12];
+            tenures.forEach(months => {
                 const div = document.createElement('div');
                 div.className = 'plan-option';
-                div.innerHTML = `
-                    <div class="plan-months">${tenure.months}M</div>
-                    <div class="plan-interest">${tenure.interest}%</div>
-                `;
-                div.dataset.months = tenure.months;
-                div.dataset.interest = tenure.interest;
-                div.onclick = () => selectTenure(tenure.months);
+                div.innerHTML = `<div class="plan-months">${months}M</div><div class="plan-interest">${interestRates[months]}%</div>`;
+                div.dataset.months = months;
+                div.onclick = () => selectTenure(months);
                 container.appendChild(div);
             });
         }
 
         function selectTenure(months) {
             selectedTenure = months;
-            
-            document.querySelectorAll('.plan-option').forEach(option => {
-                option.classList.remove('selected');
-            });
+            selectedInterest = interestRates[months];
+            document.querySelectorAll('.plan-option').forEach(opt => opt.classList.remove('selected'));
             event.target.closest('.plan-option').classList.add('selected');
-            
             updateEMICalculator();
         }
 
         function updateEMICalculator() {
             const amount = parseFloat(document.getElementById('loanAmount').value) || 0;
-            const months = selectedTenure || 1;
-            
-            const selectedOption = document.querySelector('.plan-option.selected');
-            const interestRate = selectedOption ? parseFloat(selectedOption.dataset.interest) : 6.5;
-            
-            const monthlyRate = interestRate / 100 / 12;
-            const emi = amount * monthlyRate * Math.pow(1 + monthlyRate, months) / 
-                        (Math.pow(1 + monthlyRate, months) - 1);
-            
-            const totalPayable = emi * months;
-            const totalInterest = totalPayable - amount;
-            
+            const processingFee = parseFloat(document.getElementById('processingFeeAmount').value) || 0;
+            document.getElementById('processingFeeDisplay').textContent = `₹${processingFee}`;
+            if (!selectedTenure || !selectedInterest || amount <= 0) {
+                document.getElementById('monthlyEmi').textContent = '₹0';
+                document.getElementById('totalInterest').textContent = '₹0';
+                document.getElementById('totalPayable').textContent = `₹${processingFee}`;
+                return;
+            }
+            const monthlyRate = selectedInterest / 100 / 12;
+            const emi = amount * monthlyRate * Math.pow(1 + monthlyRate, selectedTenure) / (Math.pow(1 + monthlyRate, selectedTenure) - 1);
+            const totalPayableWithInterest = emi * selectedTenure;
+            const totalInterestAmount = totalPayableWithInterest - amount;
+            const totalPayable = totalPayableWithInterest + processingFee;
             document.getElementById('monthlyEmi').textContent = `₹${Math.round(emi)}`;
-            document.getElementById('totalInterest').textContent = `₹${Math.round(totalInterest)}`;
+            document.getElementById('totalInterest').textContent = `₹${Math.round(totalInterestAmount)}`;
             document.getElementById('totalPayable').textContent = `₹${Math.round(totalPayable)}`;
-            
             loanApplicationData.emi = Math.round(emi);
-            loanApplicationData.totalInterest = Math.round(totalInterest);
+            loanApplicationData.totalInterest = Math.round(totalInterestAmount);
             loanApplicationData.totalPayable = Math.round(totalPayable);
-            loanApplicationData.interestRate = interestRate;
+            loanApplicationData.processingFee = processingFee;
+            loanApplicationData.interestRate = selectedInterest;
         }
 
-        // Submit Loan Application
         async function submitLoanApplication() {
             const amount = parseFloat(document.getElementById('loanAmount').value);
-            
-            if (!amount || amount <= 0) {
-                showToast('Please enter valid loan amount', 'error');
-                return;
-            }
-            
-            if (!selectedTenure) {
-                showToast('Please select loan tenure', 'error');
-                return;
-            }
-            
+            if (!amount || amount <= 0) { showToast('Please enter valid loan amount', 'error'); return; }
+            if (!selectedTenure) { showToast('Please select loan tenure', 'error'); return; }
             const limit = getCreditLimit();
-            if (amount > limit) {
-                showToast(`Amount exceeds your credit limit of ₹${limit}`, 'error');
-                return;
-            }
-            
+            if (amount > limit) { showToast(`Amount exceeds your credit limit of ₹${limit}`, 'error'); return; }
             showLoading('Submitting application...');
-            
             const loanId = 'LOAN' + Date.now();
             const loanData = {
-                loanId: loanId,
-                ...loanApplicationData,
-                amount: amount,
-                tenure: selectedTenure,
-                status: 'Pending',
-                appliedDate: new Date().toISOString(),
-                creditScore: creditScore,
-                emiDate: 2,
-                lateFee: 20,
-                completedEMIs: 0,
-                remainingEMIs: selectedTenure,
-                totalEMIs: selectedTenure,
-                latePayments: 0,
-                totalPaid: 0,
-                isActive: false
+                loanId: loanId, ...loanApplicationData, amount: amount, tenure: selectedTenure,
+                interestRate: selectedInterest, processingFee: loanApplicationData.processingFee || 0,
+                status: 'Pending', appliedDate: new Date().toISOString(), creditScore: creditScore,
+                emiDate: 2, lateFee: 50, completedEMIs: 0, remainingEMIs: selectedTenure,
+                totalEMIs: selectedTenure, latePayments: 0, totalPaid: 0, isActive: false
             };
-            
             try {
                 await database.ref('loans/' + loanId).set(loanData);
-                
                 setTimeout(() => {
                     hideLoading();
                     document.getElementById('formSteps').style.display = 'none';
                     document.getElementById('successScreen').style.display = 'flex';
-                    
-                    document.getElementById('successAmount').textContent = `₹${amount}`;
-                    document.getElementById('successTenure').textContent = `${selectedTenure} Months`;
-                    document.getElementById('successEMI').textContent = `₹${loanApplicationData.emi}`;
-                    
+                    const successDetails = document.getElementById('successDetails');
+                    successDetails.innerHTML = `
+                        <div class="success-detail-item"><span>Loan Amount:</span><span class="font-semibold">₹${amount}</span></div>
+                        <div class="success-detail-item"><span>Tenure:</span><span class="font-semibold">${selectedTenure} Months</span></div>
+                        <div class="success-detail-item"><span>Interest Rate:</span><span class="font-semibold">${selectedInterest}%</span></div>
+                        <div class="success-detail-item"><span>Processing Fee:</span><span class="font-semibold">₹${loanApplicationData.processingFee || 0}</span></div>
+                        <div class="success-detail-item"><span>Monthly EMI:</span><span class="font-semibold">₹${loanApplicationData.emi}</span></div>
+                        <div class="success-detail-item"><span>Due Date:</span><span class="font-semibold">2nd of every month</span></div>
+                    `;
                     showToast('Loan application submitted successfully!', 'success');
-                }, 1500);
-                
-            } catch (error) {
-                hideLoading();
-                showToast('Error submitting application: ' + error.message, 'error');
-            }
+                }, 1000);
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
-        function getCreditLimit() {
-            if (creditScore >= 600 && creditScore <= 800) return 20000;
-            if (creditScore >= 500 && creditScore < 600) return 5000;
-            return 1000;
-        }
-
-        // My Loans Functions
+        // My Loans with Real-time Updates
         async function loadMyLoans() {
             if (!currentUser) return;
-            
-            showLoading('Loading your loans...');
-            
-            try {
-                const snapshot = await database.ref('loans').orderByChild('accNo').equalTo(currentUser.accNo).once('value');
-                const table = document.getElementById('myLoansTable');
+            const table = document.getElementById('myLoansTable');
+            const renderLoans = (snapshot) => {
                 table.innerHTML = '';
-                
-                if (!snapshot.exists()) {
-                    table.innerHTML = `
-                        <tr>
-                            <td colspan="8" class="text-center py-8 text-muted">
-                                No loans found
-                            </td>
-                        </tr>
-                    `;
-                    hideLoading();
-                    return;
-                }
-                
+                if (!snapshot.exists()) { table.innerHTML = '<tr><td colspan="8" class="text-center py-8 text-muted">No loans found</td></tr>'; return; }
                 snapshot.forEach(child => {
                     const loan = child.val();
                     const appliedDate = new Date(loan.appliedDate).toLocaleDateString();
-                    
-                    let dueDate = new Date();
-                    dueDate.setDate(loan.emiDate);
-                    if (dueDate < new Date()) {
-                        dueDate.setMonth(dueDate.getMonth() + 1);
-                    }
-                    
+                    let dueDate = new Date(); dueDate.setDate(loan.emiDate);
+                    if (dueDate < new Date()) dueDate.setMonth(dueDate.getMonth() + 1);
                     const statusClass = `status-${loan.status.toLowerCase()}`;
                     const remainingEMIs = loan.remainingEMIs || loan.tenure;
-                    
-                    const row = `
-                        <tr>
-                            <td class="font-medium">${loan.loanId}</td>
-                            <td>₹${loan.amount}</td>
-                            <td>${loan.tenure} months</td>
-                            <td>₹${loan.emi}</td>
-                            <td>${remainingEMIs} / ${loan.tenure}</td>
-                            <td><span class="status-badge ${statusClass}">${loan.status}</span></td>
-                            <td>${dueDate.getDate()} ${dueDate.toLocaleString('default', { month: 'short' })}</td>
-                            <td>${appliedDate}</td>
-                        </tr>
-                    `;
-                    table.innerHTML += row;
+                    table.innerHTML += `<tr><td class="font-medium">${loan.loanId}</td><td>₹${loan.amount}</td><td>${loan.tenure} months</td><td>₹${loan.emi}</td><td>${remainingEMIs} / ${loan.tenure}</td><td><span class="status-badge ${statusClass}">${loan.status}</span></td><td>${dueDate.getDate()} ${dueDate.toLocaleString('default', { month: 'short' })}</td><td>${appliedDate}</td></tr>`;
                 });
-                
-                setTimeout(() => {
-                    hideLoading();
-                }, 1000);
-            } catch (error) {
-                hideLoading();
-                showToast('Error loading loans: ' + error.message, 'error');
-            }
+            };
+            database.ref('loans').orderByChild('accNo').equalTo(currentUser.accNo).on('value', renderLoans);
         }
 
-        // Admin Functions
-        function showAdminLoginModal() {
-            showModal('adminLoginModal');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('show');
-        }
-
-        function showModal(modalId) {
-            document.getElementById(modalId).classList.add('show');
-        }
-
-        function showSettlementModal() {
-            showModal('settlementModal');
-        }
-
-        function showCreditScoreModal() {
+        // Admin Functions with Real-time Updates
+        function showAdminLoginModal() { showModal('adminLoginModal'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.remove('show'); }
+        function showModal(modalId) { document.getElementById(modalId).classList.add('show'); }
+        function showSettlementModal() { showModal('settlementModal'); }
+        function showCreditScoreModal() { 
             showModal('creditScoreModal');
+            document.getElementById('accountInfoDisplay').classList.add('hidden');
+            document.getElementById('manageAccountNo').value = '';
+            document.getElementById('newCreditScore').value = '';
         }
+
+        async function fetchAccountInfo() {
+            const accNo = document.getElementById('manageAccountNo').value.trim();
+            if (!accNo) return;
+            try {
+                const snapshot = await database.ref('users/' + accNo).once('value');
+                if (snapshot.exists()) {
+                    const user = snapshot.val();
+                    document.getElementById('displayAccountName').textContent = user.fullName || 'N/A';
+                    document.getElementById('displayAccountBalance').textContent = user.balance || 0;
+                    const loanSnapshot = await database.ref('loans').orderByChild('accNo').equalTo(accNo).once('value');
+                    let userCreditScore = 283;
+                    if (loanSnapshot.exists()) {
+                        let completed = 0, late = 0;
+                        loanSnapshot.forEach(l => { if (l.val().status === 'Completed') completed++; if (l.val().latePayments) late += l.val().latePayments; });
+                        userCreditScore = 283 + (completed * 100) - (late * 50);
+                        userCreditScore = Math.max(100, Math.min(800, userCreditScore));
+                    }
+                    document.getElementById('displayAccountScore').textContent = userCreditScore;
+                    document.getElementById('accountInfoDisplay').classList.remove('hidden');
+                } else {
+                    document.getElementById('accountInfoDisplay').classList.add('hidden');
+                    showToast('Account not found', 'error');
+                }
+            } catch (error) { showToast('Error fetching account info', 'error'); }
+        }
+
+        document.getElementById('manageAccountNo')?.addEventListener('input', function() {
+            if (this.value.length >= 3) fetchAccountInfo();
+        });
 
         function adminLogin() {
             const pin = document.getElementById('adminPinCode').value;
             if (pin === 'PC15836215') {
                 showLoading('Logging in as admin...');
-                
                 setTimeout(() => {
                     hideLoading();
                     closeModal('adminLoginModal');
                     document.getElementById('homepage').style.display = 'none';
                     document.getElementById('adminPanel').style.display = 'block';
                     loadAllLoans();
+                    updateAdminStats();
                     showToast('Admin login successful', 'success');
-                }, 1500);
-            } else {
-                showToast('Invalid admin PIN code!', 'error');
-            }
+                }, 1000);
+            } else { showToast('Invalid admin PIN code!', 'error'); }
         }
 
-        function logoutAdmin() {
-            document.getElementById('adminPanel').style.display = 'none';
-            showHomepage();
-        }
+        function logoutAdmin() { document.getElementById('adminPanel').style.display = 'none'; showHomepage(); }
 
-        async function loadAllLoans() {
-            showLoading('Loading loans...');
-            
+        async function updateAdminStats() {
             try {
                 const snapshot = await database.ref('loans').once('value');
+                let total = 0, pending = 0, active = 0, totalDisbursed = 0;
+                if (snapshot.exists()) {
+                    snapshot.forEach(loan => {
+                        total++;
+                        if (loan.val().status === 'Pending') pending++;
+                        if (loan.val().status === 'Approved') { active++; totalDisbursed += loan.val().amount || 0; }
+                    });
+                }
+                document.getElementById('totalLoansCount').textContent = total;
+                document.getElementById('pendingLoansCount').textContent = pending;
+                document.getElementById('activeLoansCount').textContent = active;
+                document.getElementById('totalDisbursed').textContent = `₹${totalDisbursed.toLocaleString()}`;
+            } catch (error) { console.error('Error updating stats:', error); }
+        }
+
+        function loadAllLoans() {
+            const renderAllLoans = (snapshot) => {
                 const table = document.getElementById('allLoansTable');
                 table.innerHTML = '';
-                
-                if (!snapshot.exists()) {
-                    table.innerHTML = `
-                        <tr>
-                            <td colspan="8" class="text-center py-8 text-muted">
-                                No loan applications found
-                            </td>
-                        </tr>
-                    `;
-                    hideLoading();
-                    return;
-                }
-                
+                if (!snapshot.exists()) { table.innerHTML = '<tr><td colspan="9" class="text-center py-8 text-muted">No loan applications found</td></tr>'; return; }
                 snapshot.forEach(child => {
                     const loan = child.val();
                     const statusClass = `status-${loan.status.toLowerCase()}`;
                     const remainingEMIs = loan.remainingEMIs || loan.tenure;
-                    
-                    const row = `
-                        <tr>
-                            <td class="font-medium">${loan.loanId}</td>
-                            <td>${loan.accNo}</td>
-                            <td>${loan.name}</td>
-                            <td>₹${loan.amount}</td>
-                            <td>${loan.tenure} months</td>
-                            <td>${remainingEMIs} / ${loan.tenure}</td>
-                            <td><span class="status-badge ${statusClass}">${loan.status}</span></td>
-                            <td>
-                                <div class="action-buttons">
-                                    ${loan.status === 'Pending' ? `
-                                        <button class="action-btn action-btn-success" 
-                                                onclick="approveLoan('${child.key}')">Approve</button>
-                                        <button class="action-btn action-btn-danger" 
-                                                onclick="rejectLoan('${child.key}')">Reject</button>
-                                    ` : ''}
-                                    ${loan.status === 'Approved' && remainingEMIs > 0 ? `
-                                        <button class="action-btn action-btn-primary" 
-                                                onclick="showClearEMIModal('${child.key}')">Clear EMI</button>
-                                    ` : ''}
-                                    ${loan.status === 'Approved' && remainingEMIs === 1 ? `
-                                        <button class="action-btn action-btn-warning" 
-                                                onclick="showForecloseModal('${child.key}')">Foreclose</button>
-                                    ` : ''}
-                                </div>
-                            </td>
-                        </tr>
-                    `;
-                    table.innerHTML += row;
+                    table.innerHTML += `<tr><td class="font-medium">${loan.loanId}</td><td>${loan.accNo}</td><td>${loan.name}</td><td>₹${loan.amount}</td><td>${loan.tenure}M</td><td>${loan.interestRate || 0}%</td><td>${remainingEMIs} / ${loan.tenure}</td><td><span class="status-badge ${statusClass}">${loan.status}</span></td><td><div class="action-buttons">${loan.status === 'Pending' ? `<button class="action-btn action-btn-success" onclick="approveLoan('${child.key}')">Approve</button><button class="action-btn action-btn-danger" onclick="rejectLoan('${child.key}')">Reject</button>` : ''}${loan.status === 'Approved' && remainingEMIs > 0 ? `<button class="action-btn action-btn-primary" onclick="showClearEMIModal('${child.key}')">Clear EMI</button>` : ''}${loan.status === 'Approved' && remainingEMIs === 1 ? `<button class="action-btn action-btn-warning" onclick="showForecloseModal('${child.key}')">Foreclose</button>` : ''}</div></td></tr>`;
                 });
-                
-                setTimeout(() => {
-                    hideLoading();
-                }, 1000);
-            } catch (error) {
-                hideLoading();
-                showToast('Error loading loans: ' + error.message, 'error');
-            }
+                updateAdminStats();
+            };
+            database.ref('loans').on('value', renderAllLoans);
         }
 
-        // FIXED: approveLoan function - now adds loan amount to user balance
         async function approveLoan(loanId) {
             if (!confirm('Approve this loan application?')) return;
-            
             showLoading('Approving loan...');
-            
             try {
                 const loanRef = database.ref('loans/' + loanId);
                 const loanSnapshot = await loanRef.once('value');
                 const loan = loanSnapshot.val();
-                
-                // Get user data
                 const userRef = database.ref('users/' + loan.accNo);
                 const userSnapshot = await userRef.once('value');
-                const userData = userSnapshot.val();
-                
-                if (userData) {
-                    // Calculate new balance
-                    const currentBalance = userData.balance || 0;
-                    const loanAmount = loan.amount || 0;
-                    const newBalance = currentBalance + loanAmount;
-                    
-                    // Update user balance
-                    await userRef.update({
-                        balance: newBalance
-                    });
-                    
-                    // Show success message with details
-                    showToast(`Approved! ₹${loanAmount} added to user's balance.`, 'success');
+                if (userSnapshot.exists()) {
+                    const currentBalance = userSnapshot.val().balance || 0;
+                    const newBalance = currentBalance + loan.amount;
+                    await userRef.update({ balance: newBalance });
+                    showToast(`Approved! ₹${loan.amount} added to user's balance.`, 'success');
                 }
-                
-                // Update loan status
-                await loanRef.update({
-                    status: 'Approved',
-                    approvedDate: new Date().toISOString(),
-                    approvedBy: 'Admin',
-                    isActive: true
-                });
-                
-                setTimeout(() => {
-                    hideLoading();
-                    loadAllLoans();
-                }, 1500);
-                
-            } catch (error) {
+                await loanRef.update({ status: 'Approved', approvedDate: new Date().toISOString(), approvedBy: 'Admin', isActive: true });
                 hideLoading();
-                showToast('Error approving loan: ' + error.message, 'error');
-            }
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
         async function rejectLoan(loanId) {
             if (!confirm('Reject this loan application?')) return;
-            
             showLoading('Rejecting loan...');
-            
             try {
-                await database.ref('loans/' + loanId).update({
-                    status: 'Rejected',
-                    rejectedDate: new Date().toISOString(),
-                    rejectedBy: 'Admin',
-                    isActive: false
-                });
-                
-                setTimeout(() => {
-                    hideLoading();
-                    showToast('Loan rejected!', 'success');
-                    loadAllLoans();
-                }, 1500);
-                
-            } catch (error) {
+                await database.ref('loans/' + loanId).update({ status: 'Rejected', rejectedDate: new Date().toISOString(), rejectedBy: 'Admin', isActive: false });
                 hideLoading();
-                showToast('Error rejecting loan: ' + error.message, 'error');
-            }
+                showToast('Loan rejected!', 'success');
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
         async function showClearEMIModal(loanId) {
             currentLoanId = loanId;
-            
             try {
                 const snapshot = await database.ref('loans/' + loanId).once('value');
                 currentLoanDetails = snapshot.val();
-                
-                const emiAmount = currentLoanDetails.emi || 0;
-                document.getElementById('emiPaymentAmount').value = emiAmount;
-                document.getElementById('loanDetailsText').textContent = 
-                    `Loan ID: ${loanId} | Amount: ₹${currentLoanDetails.amount} | Remaining EMI: ${currentLoanDetails.remainingEMIs}/${currentLoanDetails.tenure}`;
-                
+                document.getElementById('emiPaymentAmount').value = currentLoanDetails.emi || 0;
+                document.getElementById('loanDetailsText').innerHTML = `Loan ID: ${loanId}<br>Amount: ₹${currentLoanDetails.amount}<br>Remaining EMI: ${currentLoanDetails.remainingEMIs}/${currentLoanDetails.tenure}`;
                 showModal('clearEMIModal');
-            } catch (error) {
-                showToast('Error loading loan details: ' + error.message, 'error');
-            }
+            } catch (error) { showToast('Error loading loan details', 'error'); }
         }
 
         async function confirmEMIPayment() {
             if (!currentLoanId || !currentLoanDetails) return;
-            
             showLoading('Processing EMI payment...');
-            
             try {
                 const paymentAmount = parseFloat(document.getElementById('emiPaymentAmount').value);
                 const lateFee = parseFloat(document.getElementById('lateFeeAmount').value) || 0;
                 const paymentMethod = document.getElementById('paymentMethod').value;
-                
                 const totalPayment = paymentAmount + lateFee;
                 const remainingEMIs = currentLoanDetails.remainingEMIs - 1;
-                
-                const updates = {
-                    remainingEMIs: remainingEMIs,
-                    completedEMIs: (currentLoanDetails.completedEMIs || 0) + 1,
-                    totalPaid: (currentLoanDetails.totalPaid || 0) + totalPayment,
-                    lastPaymentDate: new Date().toISOString(),
-                    lastPaymentMethod: paymentMethod
-                };
-                
-                if (lateFee > 0) {
-                    updates.latePayments = (currentLoanDetails.latePayments || 0) + 1;
-                }
-                
-                if (remainingEMIs === 0) {
-                    updates.status = 'Completed';
-                    updates.completedDate = new Date().toISOString();
-                    updates.isActive = false;
-                }
-                
+                const updates = { remainingEMIs: remainingEMIs, completedEMIs: (currentLoanDetails.completedEMIs || 0) + 1, totalPaid: (currentLoanDetails.totalPaid || 0) + totalPayment, lastPaymentDate: new Date().toISOString(), lastPaymentMethod: paymentMethod };
+                if (lateFee > 0) updates.latePayments = (currentLoanDetails.latePayments || 0) + 1;
+                if (remainingEMIs === 0) updates.status = 'Completed';
                 await database.ref('loans/' + currentLoanId).update(updates);
-                
-                const paymentId = 'PAY' + Date.now();
-                await database.ref('payments/' + paymentId).set({
-                    paymentId: paymentId,
-                    loanId: currentLoanId,
-                    accNo: currentLoanDetails.accNo,
-                    amount: paymentAmount,
-                    lateFee: lateFee,
-                    total: totalPayment,
-                    method: paymentMethod,
-                    date: new Date().toISOString(),
-                    emiNumber: (currentLoanDetails.completedEMIs || 0) + 1,
-                    remainingEMIs: remainingEMIs
-                });
-                
-                setTimeout(() => {
-                    hideLoading();
-                    closeModal('clearEMIModal');
-                    showToast('EMI payment recorded successfully!', 'success');
-                    loadAllLoans();
-                }, 1500);
-                
-            } catch (error) {
                 hideLoading();
-                showToast('Error processing payment: ' + error.message, 'error');
-            }
+                closeModal('clearEMIModal');
+                showToast('EMI payment recorded successfully!', 'success');
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
         async function showForecloseModal(loanId) {
             currentLoanId = loanId;
-            
             try {
                 const snapshot = await database.ref('loans/' + loanId).once('value');
                 currentLoanDetails = snapshot.val();
-                
                 const remainingPrincipal = (currentLoanDetails.amount / currentLoanDetails.tenure) * currentLoanDetails.remainingEMIs;
                 const foreclosureAmount = remainingPrincipal + (remainingPrincipal * 0.02);
-                
                 document.getElementById('foreclosureAmount').value = foreclosureAmount.toFixed(2);
                 document.getElementById('foreclosureDiscount').value = '0';
                 document.getElementById('finalForeclosureAmount').value = foreclosureAmount.toFixed(2);
-                
-                document.getElementById('foreclosureLoanDetails').textContent = 
-                    `Loan ID: ${loanId} | Original Amount: ₹${currentLoanDetails.amount} | Remaining EMI: ${currentLoanDetails.remainingEMIs}`;
-                
-                document.getElementById('foreclosureDiscount').addEventListener('input', function() {
-                    const discount = parseFloat(this.value) || 0;
-                    const finalAmount = foreclosureAmount - discount;
-                    document.getElementById('finalForeclosureAmount').value = finalAmount > 0 ? finalAmount.toFixed(2) : '0';
-                });
-                
+                document.getElementById('foreclosureLoanDetails').innerHTML = `Loan ID: ${loanId}<br>Original Amount: ₹${currentLoanDetails.amount}<br>Remaining EMI: ${currentLoanDetails.remainingEMIs}`;
                 showModal('forecloseModal');
-            } catch (error) {
-                showToast('Error loading loan details: ' + error.message, 'error');
-            }
+            } catch (error) { showToast('Error loading loan details', 'error'); }
+        }
+
+        function updateForeclosureAmount() {
+            const foreclosureAmount = parseFloat(document.getElementById('foreclosureAmount').value) || 0;
+            const discount = parseFloat(document.getElementById('foreclosureDiscount').value) || 0;
+            document.getElementById('finalForeclosureAmount').value = Math.max(0, foreclosureAmount - discount).toFixed(2);
         }
 
         async function confirmForeclosure() {
-            if (!confirm('Are you sure you want to foreclose this loan? This action cannot be undone.')) return;
-            
+            if (!confirm('Are you sure you want to foreclose this loan?')) return;
             showLoading('Processing foreclosure...');
-            
             try {
                 const finalAmount = parseFloat(document.getElementById('finalForeclosureAmount').value);
                 const discount = parseFloat(document.getElementById('foreclosureDiscount').value) || 0;
-                
-                const updates = {
-                    status: 'Completed',
-                    completedDate: new Date().toISOString(),
-                    isActive: false,
-                    remainingEMIs: 0,
-                    completedEMIs: currentLoanDetails.tenure,
-                    foreclosureAmount: finalAmount,
-                    foreclosureDiscount: discount,
-                    foreclosureDate: new Date().toISOString(),
-                    totalPaid: (currentLoanDetails.totalPaid || 0) + finalAmount
-                };
-                
-                await database.ref('loans/' + currentLoanId).update(updates);
-                
-                const foreclosureId = 'FCL' + Date.now();
-                await database.ref('foreclosures/' + foreclosureId).set({
-                    foreclosureId: foreclosureId,
-                    loanId: currentLoanId,
-                    accNo: currentLoanDetails.accNo,
-                    originalAmount: currentLoanDetails.amount,
-                    foreclosureAmount: finalAmount,
-                    discount: discount,
-                    date: new Date().toISOString()
-                });
-                
-                setTimeout(() => {
-                    hideLoading();
-                    closeModal('forecloseModal');
-                    showToast('Loan foreclosed successfully!', 'success');
-                    loadAllLoans();
-                }, 1500);
-                
-            } catch (error) {
+                await database.ref('loans/' + currentLoanId).update({ status: 'Completed', completedDate: new Date().toISOString(), isActive: false, remainingEMIs: 0, completedEMIs: currentLoanDetails.tenure, foreclosureAmount: finalAmount, foreclosureDiscount: discount, foreclosureDate: new Date().toISOString(), totalPaid: (currentLoanDetails.totalPaid || 0) + finalAmount });
                 hideLoading();
-                showToast('Error processing foreclosure: ' + error.message, 'error');
-            }
+                closeModal('forecloseModal');
+                showToast('Loan foreclosed successfully!', 'success');
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
         async function updateCreditScore() {
             const accNo = document.getElementById('manageAccountNo').value.trim();
             const newScore = parseInt(document.getElementById('newCreditScore').value);
-            
-            if (!accNo || !newScore || newScore < 100 || newScore > 800) {
-                showToast('Please enter valid account number and credit score (100-800)', 'error');
-                return;
-            }
-            
+            if (!accNo || !newScore || newScore < 100 || newScore > 800) { showToast('Please enter valid account number and credit score (100-800)', 'error'); return; }
             showLoading('Updating credit score...');
-            
             try {
                 const snapshot = await database.ref('loans').orderByChild('accNo').equalTo(accNo).once('value');
                 const updates = {};
-                
-                snapshot.forEach(child => {
-                    updates[`loans/${child.key}/creditScore`] = newScore;
-                });
-                
+                snapshot.forEach(child => { updates[`loans/${child.key}/creditScore`] = newScore; });
                 if (Object.keys(updates).length > 0) {
                     await database.ref().update(updates);
-                    
-                    setTimeout(() => {
-                        hideLoading();
-                        closeModal('creditScoreModal');
-                        showToast('Credit score updated successfully!', 'success');
-                    }, 1500);
-                } else {
-                    hideLoading();
-                    showToast('No loans found for this account', 'warning');
-                }
-                
-            } catch (error) {
+                    showToast('Credit score updated successfully!', 'success');
+                } else { showToast('No loans found for this account', 'warning'); }
+                closeModal('creditScoreModal');
                 hideLoading();
-                showToast('Error updating credit score: ' + error.message, 'error');
-            }
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
         async function processSettlement() {
             const loanId = document.getElementById('settlementLoanId').value.trim();
             const amount = parseFloat(document.getElementById('settlementAmount').value);
             const tenure = parseInt(document.getElementById('settlementTenure').value);
-            
-            if (!loanId || !amount || amount <= 0 || !tenure) {
-                showToast('Please fill all settlement details', 'error');
-                return;
-            }
-            
+            if (!loanId || !amount || amount <= 0 || !tenure) { showToast('Please fill all settlement details', 'error'); return; }
             showLoading('Processing settlement...');
-            
             try {
-                const loanRef = database.ref('loans/' + loanId);
-                const loanSnapshot = await loanRef.once('value');
-                const loan = loanSnapshot.val();
-                
-                await loanRef.update({
-                    settlementAmount: amount,
-                    settlementTenure: tenure,
-                    settlementDate: new Date().toISOString(),
-                    status: 'Settled',
-                    isActive: false,
-                    remainingEMIs: 0
-                });
-                
-                const settlementId = 'SET' + Date.now();
-                await database.ref('settlements/' + settlementId).set({
-                    settlementId: settlementId,
-                    loanId: loanId,
-                    accNo: loan.accNo,
-                    originalAmount: loan.amount,
-                    settlementAmount: amount,
-                    settlementTenure: tenure,
-                    date: new Date().toISOString()
-                });
-                
-                setTimeout(() => {
-                    hideLoading();
-                    closeModal('settlementModal');
-                    showToast('Settlement processed successfully!', 'success');
-                    loadAllLoans();
-                }, 1500);
-                
-            } catch (error) {
+                await database.ref('loans/' + loanId).update({ settlementAmount: amount, settlementTenure: tenure, settlementDate: new Date().toISOString(), status: 'Settled', isActive: false, remainingEMIs: 0 });
                 hideLoading();
-                showToast('Error processing settlement: ' + error.message, 'error');
-            }
+                closeModal('settlementModal');
+                showToast('Settlement processed successfully!', 'success');
+            } catch (error) { hideLoading(); showToast('Error: ' + error.message, 'error'); }
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             showHomepage();
-            
             const loanAmountInput = document.getElementById('loanAmount');
-            if (loanAmountInput) {
-                loanAmountInput.addEventListener('input', updateEMICalculator);
-            }
+            if (loanAmountInput) loanAmountInput.addEventListener('input', updateEMICalculator);
+            const processingFeeInput = document.getElementById('processingFeeAmount');
+            if (processingFeeInput) processingFeeInput.addEventListener('input', updateEMICalculator);
         });
     </script>
 </body>
