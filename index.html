@@ -296,14 +296,43 @@ a{color:var(--blue-hi);text-decoration:none}
     border:1px solid var(--line-soft);
     border-radius:var(--r-pill);
 }
+
 .user-avatar{
+    position:relative;
     width:30px;height:30px;
     border-radius:50%;
     background:linear-gradient(140deg,#10B981,#059669);
     display:flex;align-items:center;justify-content:center;
     font-family:var(--f-display);
     font-size:13px;font-weight:700;color:#fff;
+    flex-shrink:0;
 }
+.avatar-inner{
+    width:100%;height:100%;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+}
+.avatar-inner img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:50%;
+}
+/* Google-style verified tick */
+.avatar-verify{
+    position:absolute;
+    right:-3px;bottom:-3px;
+    width:15px;height:15px;
+    border-radius:50%;
+    display:none;
+    overflow:hidden;
+    box-shadow:0 0 0 2px #101A2C;
+    z-index:4;
+}
+.avatar-verify.show{display:block}
+.avatar-verify svg{width:100%;height:100%;display:block}
+
 .user-name{font-size:13px;font-weight:600;color:var(--txt-1);max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* ==========================================================================
@@ -694,6 +723,80 @@ a{color:var(--blue-hi);text-decoration:none}
 .auth-option-btn.primary-opt .auth-opt-desc{color:rgba(255,255,255,.75)}
 .auth-opt-arrow{color:var(--txt-3);font-size:20px}
 .auth-option-btn.primary-opt .auth-opt-arrow{color:rgba(255,255,255,.7)}
+
+/* ---- Google Sign-In ---- */
+.auth-divider{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:22px 0 16px;
+    color:var(--txt-3);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+.auth-divider::before,
+.auth-divider::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:var(--line);
+}
+
+.google-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    width:100%;
+    padding:15px 22px;
+    border-radius:var(--r-lg);
+    background:#FFFFFF;
+    border:1px solid #FFFFFF;
+    color:#1F1F1F;
+    font-family:var(--f-display);
+    font-size:14.5px;
+    font-weight:600;
+    letter-spacing:-.01em;
+    cursor:pointer;
+    transition:all var(--t-fast) var(--ease);
+    box-shadow:0 8px 22px -12px rgba(0,0,0,.9);
+}
+.google-btn:hover{
+    background:#F1F3F4;
+    border-color:#F1F3F4;
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -12px rgba(0,0,0,.95);
+}
+.google-btn:active{transform:scale(.98)}
+.google-btn .g-icon{width:20px;height:20px;flex-shrink:0;display:block}
+
+.google-note{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    margin-top:14px;
+    font-size:11.5px;
+    color:var(--txt-3);
+    text-align:center;
+    line-height:1.5;
+}
+.google-note .material-symbols-rounded{font-size:15px;color:var(--emerald)}
+
+/* Google "verified" tick used on the profile picture */
+.g-verified-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#34A853;
+}
+.g-verified-pill svg{width:12px;height:12px;display:block;flex-shrink:0}
 
 /* ==========================================================================
    FORM ELEMENTS
@@ -2023,6 +2126,24 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                     <span class="material-symbols-rounded auth-opt-arrow">chevron_right</span>
                 </button>
 
+                <!-- ===== GOOGLE SIGN-IN ===== -->
+                <div class="auth-divider"><span>or</span></div>
+
+                <button class="google-btn" onclick="executeGoogleLogin()">
+                    <svg class="g-icon" viewBox="0 0 48 48" aria-hidden="true">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <div class="google-note">
+                    <span class="material-symbols-rounded">verified_user</span>
+                    Verified by Google · secure one-tap access
+                </div>
+
                 <div style="margin-top:26px;padding-top:20px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--txt-3);display:flex;align-items:center;gap:8px;">
                     <span class="material-symbols-rounded" style="font-size:16px;">lock</span>
                     Protected by end-to-end session encryption.
@@ -2112,7 +2233,19 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
 
                 <div class="fh-actions">
                     <div class="user-chip">
-                        <div class="user-avatar" id="userAvatar">C</div>
+                        <div class="user-avatar" id="userAvatar">
+                            <span class="avatar-inner" id="userAvatarInner">C</span>
+                            <span class="avatar-verify" id="avatarVerify" title="Verified by Google">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="12" fill="#34A853"/>
+                                    <path d="M6.4 12.35l3.3 3.3 7.6-7.6"
+                                          fill="none" stroke="#FFFFFF"
+                                          stroke-width="2.7"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="user-name" id="dashUserName">Client</div>
                     </div>
                     <button class="icon-btn" onclick="logout()" title="Sign out">
@@ -3128,6 +3261,63 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
 
 
 <!-- ==========================================================================
+     MODAL · GOOGLE LINK REQUIRED
+     ========================================================================== -->
+<div class="modal-overlay" id="modal-google-link">
+    <div class="modal-box narrow">
+        <div class="modal-head">
+            <div>
+                <h3>Link Required</h3>
+                <div class="sub">This Google account is not linked to a PlayCode ledger</div>
+            </div>
+            <button class="modal-close" onclick="closeModal('modal-google-link')">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="minor-alert" style="margin-bottom:18px;">
+                <span class="material-symbols-rounded">link_off</span>
+                <div>
+                    <div class="minor-alert-title">No linked account found</div>
+                    <div class="minor-alert-text">
+                        We could not find a PlayCode account linked to
+                        <strong id="gLinkEmail">this Google account</strong>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-label">How to link</div>
+            <ol style="font-size:13.5px;color:var(--txt-2);line-height:1.95;padding-left:20px;">
+                <li>Open <strong style="color:var(--txt-1);">PlayCode Workspace</strong>.</li>
+                <li>Sign in using your <strong style="color:var(--txt-1);">Account Number</strong> and <strong style="color:var(--txt-1);">SAR</strong>.</li>
+                <li>Link your Account Number with your Google account.</li>
+                <li>Return here and tap <strong style="color:var(--txt-1);">Continue with Google</strong>.</li>
+            </ol>
+
+            <div class="policy-note" style="margin-top:20px;margin-bottom:0;">
+                <span class="material-symbols-rounded">info</span>
+                <div>
+                    You can also link right now — sign in below with your Account &amp; SAR and
+                    this Google account will be attached automatically.
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-foot">
+            <button class="btn btn-surface" onclick="closeModal('modal-google-link')">Cancel</button>
+            <button class="btn btn-surface" onclick="googleLinkGoToWorkspace()">
+                <span class="material-symbols-rounded">open_in_new</span> PlayCode Workspace
+            </button>
+            <button class="btn btn-primary" onclick="googleLinkUseSar()">
+                <span class="material-symbols-rounded">badge</span> Link via Account &amp; SAR
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==========================================================================
      MODAL · SUCCESS
      ========================================================================== -->
 <div class="modal-overlay" id="modal-success">
@@ -3175,6 +3365,10 @@ let activeUser = null;
 let globalProcessingFee = 249;
 let userCreditScore = 283;
 let currentAdminTab = 'registry';
+
+/* ---- Google identity state (additive) ---- */
+let pendingGoogleUser = null;   // Google profile awaiting an account link
+let googleProfile = null;       // Google profile for the active session
 
 let appLoanType = 'Personal';
 let appSelectedTenure = null;
@@ -3384,12 +3578,33 @@ async function executeCustomerLogin() {
         if (snap.exists() && String(snap.val().sarNo) === String(sarNo)) {
             activeUser = snap.val();
 
+            /* ---- Link a waiting Google identity (only if one is pending) ---- */
+            if (pendingGoogleUser) {
+                try {
+                    await db.ref('googleLinks/' + pendingGoogleUser.uid).set({
+                        accNo: accNo,
+                        email: pendingGoogleUser.email || '',
+                        linkedAt: new Date().toISOString()
+                    });
+                    await db.ref('users/' + accNo).update({
+                        googleUid: pendingGoogleUser.uid,
+                        googleEmail: pendingGoogleUser.email || '',
+                        googlePhoto: pendingGoogleUser.photo || ''
+                    });
+                    googleProfile = pendingGoogleUser;
+                    pendingGoogleUser = null;
+                    Util.toast('Google account linked & verified.', 'success');
+                } catch (linkErr) {
+                    console.warn('Google link failed', linkErr);
+                }
+            }
+
             db.ref('users/' + accNo).on('value', s => {
                 if (s.exists()) {
                     activeUser = s.val();
                     if (document.getElementById('dashUserName')) {
                         document.getElementById('dashUserName').innerText = activeUser.fullName || 'Client';
-                        document.getElementById('userAvatar').innerText = Util.initials(activeUser.fullName);
+                        applyAvatar();
                     }
                 }
             });
@@ -3431,13 +3646,191 @@ function executeAdminLogin() {
 
 function logout() {
     activeUser = null;
+    googleProfile = null;
+    pendingGoogleUser = null;
+
     db.ref('loans').off();
+
+    try { if (firebase.auth().currentUser) firebase.auth().signOut(); } catch (e) {}
+
+    const inner = document.getElementById('userAvatarInner');
+    if (inner) inner.innerText = 'C';
+    const badge = document.getElementById('avatarVerify');
+    if (badge) badge.classList.remove('show');
+
     navigate('login');
     toggleLoginMode('options');
     document.getElementById('loginAccountNo').value = '';
     document.getElementById('loginSarNo').value = '';
     Util.toast('Session terminated securely.', 'info');
 }
+
+/* ==========================================================================
+   GOOGLE SIGN-IN  ·  ADDITIVE LAYER
+   (Does not modify any existing login / ledger / admin logic)
+   ========================================================================== */
+
+/* ---- Avatar renderer (Google photo + verified tick) ---- */
+function applyAvatar() {
+    const inner = document.getElementById('userAvatarInner');
+    const badge = document.getElementById('avatarVerify');
+
+    if (inner) {
+        const photo = (googleProfile && googleProfile.photo) ||
+                      (activeUser && activeUser.googlePhoto) || '';
+
+        if (photo) {
+            inner.innerHTML = '<img src="' + Util.escape(photo) + '" alt="" referrerpolicy="no-referrer">';
+        } else {
+            inner.innerText = Util.initials(activeUser && activeUser.fullName);
+        }
+    }
+
+    if (badge) {
+        /* Tick is shown only when the session itself was authorised by Google */
+        badge.classList.toggle('show', !!googleProfile);
+    }
+}
+
+/* ---- Entry point: "Continue with Google" ---- */
+async function executeGoogleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    Util.showLoad('Connecting to Google');
+
+    try {
+        const result = await firebase.auth().signInWithPopup(provider);
+        if (!result || !result.user) throw new Error('no-user');
+        await handleGoogleUser(result.user);
+    } catch (err) {
+        console.error(err);
+
+        if (err && err.code === 'auth/popup-closed-by-user') {
+            Util.hideLoad();
+            Util.toast('Google sign-in cancelled.', 'info');
+        } else if (err && (err.code === 'auth/popup-blocked' ||
+                           err.code === 'auth/operation-not-supported-in-this-environment')) {
+            Util.hideLoad();
+            try {
+                await firebase.auth().signInWithRedirect(provider);
+            } catch (e) {
+                Util.toast('Google sign-in unavailable on this browser.', 'error');
+            }
+        } else {
+            Util.hideLoad();
+            Util.toast('Google sign-in failed. Please retry.', 'error');
+        }
+    }
+}
+
+/* ---- Resolve the Google user against the ledger ---- */
+async function handleGoogleUser(gUser) {
+    const profile = {
+        uid: gUser.uid,
+        name: gUser.displayName || '',
+        email: gUser.email || '',
+        photo: gUser.photoURL || ''
+    };
+
+    Util.showLoad('Verifying Google identity');
+
+    try {
+        const linkSnap = await db.ref('googleLinks/' + profile.uid).once('value');
+
+        let accNo = null;
+        if (linkSnap.exists()) {
+            const v = linkSnap.val();
+            accNo = (v && typeof v === 'object') ? (v.accNo || null) : v;
+        }
+
+        if (!accNo) {
+            pendingGoogleUser = profile;
+            const emailEl = document.getElementById('gLinkEmail');
+            if (emailEl) emailEl.innerText = profile.email || 'this Google account';
+            Util.hideLoad();
+            openModal('modal-google-link');
+            return;
+        }
+
+        await completeGoogleLogin(accNo, profile);
+
+    } catch (err) {
+        console.error(err);
+        Util.hideLoad();
+        Util.toast('Google verification failed.', 'error');
+    }
+}
+
+/* ---- Mount the customer session from a Google identity ---- */
+async function completeGoogleLogin(accNo, profile) {
+    const snap = await db.ref('users/' + accNo).once('value');
+
+    if (!snap.exists()) {
+        pendingGoogleUser = profile;
+        const emailEl = document.getElementById('gLinkEmail');
+        if (emailEl) emailEl.innerText = profile.email || 'this Google account';
+        Util.hideLoad();
+        openModal('modal-google-link');
+        Util.toast('Linked ledger record not found.', 'error');
+        return;
+    }
+
+    activeUser = snap.val();
+    googleProfile = profile;
+
+    /* Keep the link record fresh — non-destructive update */
+    try {
+        await db.ref('googleLinks/' + profile.uid).update({
+            accNo: accNo,
+            email: profile.email || '',
+            linkedAt: new Date().toISOString()
+        });
+        await db.ref('users/' + accNo).update({
+            googleUid: profile.uid,
+            googleEmail: profile.email || '',
+            googlePhoto: profile.photo || ''
+        });
+    } catch (metaErr) {
+        console.warn('Google metadata sync skipped', metaErr);
+    }
+
+    db.ref('users/' + accNo).on('value', s => {
+        if (s.exists()) {
+            activeUser = s.val();
+            const nameEl = document.getElementById('dashUserName');
+            if (nameEl) nameEl.innerText = activeUser.fullName || 'Client';
+            applyAvatar();
+        }
+    });
+
+    db.ref('loans').orderByChild('accNo').equalTo(accNo).on('value', () => {
+        computeLiveCreditScore();
+    });
+
+    await computeLiveCreditScore();
+    Util.hideLoad();
+    navigate('dashboard');
+    Util.toast('Verified by Google · Welcome, ' + (activeUser.fullName || 'Client'));
+}
+
+/* ---- "Not linked" modal actions ---- */
+function googleLinkGoToWorkspace() {
+    window.open('https://playcodeindia.github.io/Balance', '_blank', 'noopener');
+}
+
+function googleLinkUseSar() {
+    closeModal('modal-google-link');
+    toggleLoginMode('customer');
+    Util.toast('Sign in with Account & SAR to link this Google account.', 'info');
+}
+
+/* ---- Redirect fallback handler ---- */
+firebase.auth().getRedirectResult()
+    .then(res => {
+        if (res && res.user) { handleGoogleUser(res.user); }
+    })
+    .catch(() => {});
 
 /* ==========================================================================
    TRUST SCORE ENGINE
@@ -3524,9 +3917,8 @@ async function computeLiveCreditScore() {
 function populateDashboard() {
     if (activeUser) {
         const nameEl = document.getElementById('dashUserName');
-        const avatarEl = document.getElementById('userAvatar');
         if (nameEl) nameEl.innerText = activeUser.fullName || 'Client';
-        if (avatarEl) avatarEl.innerText = Util.initials(activeUser.fullName);
+        applyAvatar();
     }
     computeLiveCreditScore();
     updateProductRates();
@@ -4782,6 +5174,9 @@ document.addEventListener('DOMContentLoaded', () => {
     buildSimTenureOptions();
     updateProductRates();
     setTimeout(() => updateScoreRing(283), 300);
+
+    /* Google layer — reset any stale visual state */
+    applyAvatar();
 });
 </script>
 
