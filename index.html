@@ -1252,6 +1252,51 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
 }
 .receipt-row:last-child .rc-val{font-family:var(--f-display);font-size:19px;color:var(--blue-hi)}
 
+/* ==========================================================================
+   FEE MODE SELECTOR  (NEW)
+   ========================================================================== */
+.fee-mode-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:12px;
+}
+.fee-mode-card{
+    background:var(--bg-1);
+    border:1px solid var(--line);
+    border-radius:var(--r-md);
+    padding:16px;
+    cursor:pointer;
+    transition:all var(--t-fast) var(--ease);
+    user-select:none;
+}
+.fee-mode-card:hover{
+    border-color:var(--line-strong);
+    background:var(--bg-2);
+    transform:translateY(-2px);
+}
+.fee-mode-card.selected{
+    background:var(--blue-soft);
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(59,130,246,.13), 0 8px 22px -10px rgba(59,130,246,.7);
+}
+.fm-icon{
+    width:36px;height:36px;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.06);
+    color:var(--txt-3);
+    margin-bottom:10px;
+    transition:all var(--t-fast) var(--ease);
+}
+.fee-mode-card.selected .fm-icon{background:rgba(59,130,246,.22);color:var(--blue-hi)}
+.fm-icon .material-symbols-rounded{font-size:19px}
+.fm-title{
+    font-family:var(--f-display);
+    font-size:14.5px;font-weight:700;
+    color:#fff;letter-spacing:-.02em;margin-bottom:3px;
+}
+.fm-desc{font-size:11.5px;color:var(--txt-3);line-height:1.5}
+.fee-mode-card.selected .fm-desc{color:var(--txt-2)}
+
 .policy-note{
     display:flex;
     gap:12px;
@@ -1773,93 +1818,204 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
 }
 .success-icon .material-symbols-rounded{font-size:44px;color:var(--emerald)}
 
-@media(max-width:1080px){
-    .login-art{padding:48px 40px}
-    .art-stats{grid-template-columns:repeat(3,1fr);gap:12px}
-}
-@media(max-width:960px){
-    .login-shell{flex-direction:column}
-    .login-art{
-        flex:none;
-        padding:44px 26px 38px;
-        border-right:none;
-        border-bottom:1px solid var(--line);
-        align-items:center;
-        text-align:center;
+/* ==========================================================================
+   PRINT — SINGLE PAGE LANDSCAPE DOSSIER
+   ========================================================================== */
+.print-head{display:none}
+
+@media print{
+    @page{
+        size:A4 landscape;
+        margin:8mm;
     }
-    .art-content{max-width:620px;display:flex;flex-direction:column;align-items:center}
-    .art-desc{margin:0 auto}
-    .art-logo{height:56px;margin:0 auto 22px}
-    .art-stats{width:100%;max-width:560px}
-    .art-foot{display:none}
-    .login-form-side{padding:40px 22px 60px;justify-content:flex-start}
-    .fh-inner{padding:10px 14px;gap:12px}
-    .brand-sub{display:none}
-}
-@media(max-width:860px){
-    .score-panel{grid-template-columns:1fr}
-    .header-dock{padding:10px 12px 0 12px}
-    .app-main{padding:20px 14px 56px 14px}
-    .card{padding:22px;border-radius:var(--r-lg)}
-    .table-shell{border-radius:var(--r-lg)}
-    .fh-nav{display:none}
-    .modal-box{max-width:100%}
-    .detail-hero{flex-direction:column;align-items:flex-start;text-align:left}
-}
-@media(max-width:768px){
-    .data-table{min-width:0}
-    .data-table thead{display:none}
-    .data-table,.data-table tbody,.data-table tr,.data-table td{display:block;width:100%}
-    .data-table tbody tr{
-        margin-bottom:14px;
-        background:#0E1728;
-        border:1px solid var(--line);
-        border-radius:var(--r-md);
-        padding:6px 0;
-        overflow:hidden;
+
+    html,body{
+        width:auto !important;
+        height:auto !important;
+        min-height:0 !important;
+        margin:0 !important;
+        padding:0 !important;
+        background:#FFFFFF !important;
+        overflow:visible !important;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
     }
-    .data-table tbody td{
-        padding:11px 16px;
-        display:flex;
-        align-items:center;
+    body::before{display:none !important}
+
+    /* Only the dossier modal survives */
+    body.print-dossier > *:not(#modal-details){display:none !important}
+
+    body.print-dossier #modal-details{
+        position:static !important;
+        inset:auto !important;
+        display:block !important;
+        visibility:visible !important;
+        opacity:1 !important;
+        padding:0 !important;
+        margin:0 !important;
+        background:#FFFFFF !important;
+        overflow:visible !important;
+        width:100% !important;
+        height:auto !important;
+    }
+    body.print-dossier #modal-details .modal-box{
+        max-width:none !important;
+        width:100% !important;
+        max-height:none !important;
+        height:auto !important;
+        margin:0 !important;
+        padding:0 !important;
+        border:none !important;
+        border-radius:0 !important;
+        box-shadow:none !important;
+        transform:none !important;
+        background:#FFFFFF !important;
+        display:block !important;
+        overflow:visible !important;
+        color:#0B1220 !important;
+    }
+    body.print-dossier #modal-details .modal-head,
+    body.print-dossier #modal-details .modal-foot{display:none !important}
+
+    body.print-dossier #modal-details .modal-body{
+        padding:0 !important;
+        margin:0 !important;
+        overflow:visible !important;
+        max-height:none !important;
+        flex:none !important;
+    }
+
+    /* Print-only header */
+    body.print-dossier .print-head{
+        display:flex !important;
+        align-items:flex-end;
         justify-content:space-between;
-        gap:14px;
+        gap:12px;
+        border-bottom:2px solid #1D4ED8;
+        padding-bottom:5px;
+        margin-bottom:8px;
+    }
+    body.print-dossier .print-head-title{
+        font-family:'Outfit',sans-serif;
+        font-size:14px;
+        font-weight:800;
+        letter-spacing:-.02em;
+        color:#0B1220;
+    }
+    body.print-dossier .print-head-sub{
+        font-family:'JetBrains Mono',monospace;
+        font-size:8.5px;
+        color:#41506A;
+        margin-top:1px;
+    }
+    body.print-dossier .print-head-right{
         text-align:right;
-        border-bottom:1px solid var(--line-soft);
+        font-size:8px;
+        color:#41506A;
+        line-height:1.5;
     }
-    .data-table tbody td:last-child{border-bottom:none}
-    .data-table tbody td::before{
-        content:attr(data-label);
-        font-size:10.5px;
-        font-weight:700;
-        letter-spacing:.1em;
-        text-transform:uppercase;
-        color:var(--txt-3);
-        text-align:left;
-        flex-shrink:0;
+
+    /* Hero */
+    body.print-dossier .detail-hero{
+        background:#F2F6FC !important;
+        border:1px solid #C8D6EC !important;
+        border-radius:6px !important;
+        padding:7px 10px !important;
+        margin-bottom:7px !important;
+        gap:10px !important;
+        flex-wrap:nowrap !important;
+        align-items:center !important;
     }
-    .action-stack{justify-content:flex-end}
-    .art-stats{grid-template-columns:1fr;gap:10px}
-    .art-stat{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-    .art-stat-lbl{margin-top:0}
-    .pin-input{font-size:26px;letter-spacing:12px;padding-left:26px}
-    .modal-body{padding:20px}
-    .modal-head{padding:18px 20px}
-    .modal-foot{padding:14px 20px}
-    .site-foot{flex-direction:column;text-align:center;gap:8px}
-}
-@media(max-width:520px){
-    .brand-title{font-size:15px}
-    .brand-mark{width:38px;height:38px;border-radius:11px}
-    .user-name{display:none}
-    .user-chip{padding:5px}
-    .page-title{font-size:21px}
-    .stat-value{font-size:23px}
-    .product-card{padding:22px}
-    .btn-lg{padding:14px 22px;font-size:14.5px}
-    .form-row{grid-template-columns:1fr}
-    .tenure-grid{grid-template-columns:repeat(auto-fill,minmax(84px,1fr))}
-    .toast-host{bottom:16px}
+    body.print-dossier .detail-avatar{
+        width:34px !important;height:34px !important;
+        border-radius:9px !important;
+        font-size:14px !important;
+        box-shadow:none !important;
+    }
+    body.print-dossier .detail-hero-name{font-size:13.5px !important;color:#0B1220 !important}
+    body.print-dossier .detail-hero-meta{font-size:9px !important;color:#4A5A75 !important;margin-top:1px !important}
+    body.print-dossier .detail-hero-info{min-width:0 !important}
+    body.print-dossier .detail-hero-chips{flex-wrap:nowrap !important;gap:5px !important}
+
+    /* Sections */
+    body.print-dossier .detail-section{
+        margin-bottom:6px !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+    }
+    body.print-dossier .detail-section:last-child{margin-bottom:0 !important}
+
+    body.print-dossier .section-label{
+        font-size:7.5px !important;
+        color:#41506A !important;
+        margin-bottom:3px !important;
+        letter-spacing:.13em !important;
+        gap:5px !important;
+    }
+    body.print-dossier .section-label::after{background:linear-gradient(90deg,#D5DEEB,transparent) !important}
+    body.print-dossier .section-label .material-symbols-rounded{font-size:11px !important;color:#41506A !important}
+
+    /* Grids */
+    body.print-dossier .detail-grid{
+        grid-template-columns:repeat(4,1fr) !important;
+        background:#D5DEEB !important;
+        border:1px solid #D5DEEB !important;
+        border-radius:5px !important;
+        gap:1px !important;
+        overflow:visible !important;
+    }
+    body.print-dossier .detail-item{
+        background:#FFFFFF !important;
+        padding:5px 7px !important;
+    }
+    body.print-dossier .detail-item.full{grid-column:1/-1 !important}
+    body.print-dossier .detail-key{
+        font-size:6.8px !important;
+        color:#5C6B85 !important;
+        margin-bottom:1px !important;
+        letter-spacing:.1em !important;
+    }
+    body.print-dossier .detail-val{
+        font-size:9.2px !important;
+        color:#0B1220 !important;
+        line-height:1.35 !important;
+        font-weight:600 !important;
+    }
+    body.print-dossier .detail-val.mono{font-size:8.4px !important}
+    body.print-dossier .detail-val.big{font-size:12px !important}
+    body.print-dossier .detail-val.em{color:#047857 !important}
+    body.print-dossier .detail-val.rd{color:#B91C1C !important}
+    body.print-dossier .detail-val.am{color:#B45309 !important}
+    body.print-dossier .detail-val.bl{color:#1D4ED8 !important}
+
+    /* Guardian */
+    body.print-dossier .guardian-panel{
+        background:#FFF8EC !important;
+        border:1px solid #E8CFA0 !important;
+        border-radius:5px !important;
+        padding:6px !important;
+    }
+    body.print-dossier .guardian-panel .detail-grid{
+        background:#E8DCC4 !important;
+        border-color:#E8DCC4 !important;
+    }
+    body.print-dossier .guardian-panel .detail-item{background:#FFFFFF !important}
+
+    /* Chips / progress */
+    body.print-dossier .chip{
+        background:#F4F7FB !important;
+        border:1px solid #B9C7DC !important;
+        color:#22304C !important;
+        font-size:7px !important;
+        padding:1px 6px !important;
+        gap:4px !important;
+    }
+    body.print-dossier .chip::before{background:#22304C !important;width:4px !important;height:4px !important}
+    body.print-dossier .mini-progress{background:#E2E8F2 !important;height:5px !important;margin-top:4px !important}
+    body.print-dossier .mini-progress-bar{background:#1D4ED8 !important}
+
+    body.print-dossier .flex-between.mt-2{margin-top:3px !important}
+    body.print-dossier .flex-between.mt-2 .fs-12{font-size:7.5px !important}
 }
 </style>
 </head>
@@ -2354,18 +2510,46 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                     <div class="tenure-grid" id="tenureContainer"></div>
                 </div>
 
+                <!-- ============ NEW: PROCESSING FEE HANDLING ============ -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span>Processing Fee Handling <span class="req">*</span></span>
+                        <span class="hint">Choose how the fee is collected</span>
+                    </label>
+                    <div class="fee-mode-grid">
+                        <div class="fee-mode-card selected" data-mode="upfront" onclick="selectFeeMode('upfront', this)">
+                            <div class="fm-icon"><span class="material-symbols-rounded">payments</span></div>
+                            <div class="fm-title">Pay Upfront</div>
+                            <div class="fm-desc">Fee is settled directly at disbursal. EMI stays lower.</div>
+                        </div>
+                        <div class="fee-mode-card" data-mode="emi" onclick="selectFeeMode('emi', this)">
+                            <div class="fm-icon"><span class="material-symbols-rounded">calendar_month</span></div>
+                            <div class="fm-title">Add to EMI</div>
+                            <div class="fm-desc">Fee is spread across the tenure and collected with every instalment.</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="receipt">
                     <div class="receipt-row">
-                        <span>Cycle Installment (EMI)</span>
-                        <span class="rc-val" id="recEmi">₹0</span>
+                        <span>Principal Amount</span>
+                        <span class="rc-val" id="recPrincipal">₹0</span>
                     </div>
                     <div class="receipt-row">
                         <span>Interest Margin</span>
                         <span class="rc-val text-error" id="recInterest">₹0</span>
                     </div>
                     <div class="receipt-row">
-                        <span>Network Node Fee</span>
+                        <span>Sub-Total (Principal + Interest)</span>
+                        <span class="rc-val" id="recSubtotal">₹0</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span id="recFeeLabel">Processing Fee (Payable Upfront)</span>
                         <span class="rc-val" id="recFee">₹249</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Cycle Instalment (EMI)</span>
+                        <span class="rc-val" id="recEmi">₹0</span>
                     </div>
                     <div class="receipt-row">
                         <span>Gross Payable</span>
@@ -2700,7 +2884,7 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
         <div class="modal-body" id="detailModalBody"></div>
         <div class="modal-foot">
             <button class="btn btn-surface" onclick="closeModal('modal-details')">Close</button>
-            <button class="btn btn-surface" id="detailPrintBtn" onclick="window.print()">
+            <button class="btn btn-surface" id="detailPrintBtn" onclick="printDossier()">
                 <span class="material-symbols-rounded">print</span> Print
             </button>
             <button class="btn btn-primary" id="detailActionBtn" onclick="detailApproveFromModal()">
@@ -3035,6 +3219,7 @@ let currentAdminTab = 'registry';
 let appLoanType = 'Personal';
 let appSelectedTenure = null;
 let appSelectedInterest = null;
+let appFeeMode = 'upfront';          /* 'upfront' | 'emi'  ← NEW */
 
 let interestMatrix = { 1: 8, 2: 10, 3: 15, 6: 16, 8: 16, 12: 18 };
 
@@ -3197,6 +3382,28 @@ document.addEventListener('keydown', (e) => {
         document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
     }
 });
+
+/* ==========================================================================
+   PRINT — SINGLE PAGE LANDSCAPE DOSSIER   (NEW)
+   ========================================================================== */
+function printDossier() {
+    const modal = document.getElementById('modal-details');
+    if (!modal) return;
+
+    document.body.classList.add('print-dossier');
+
+    const cleanup = () => {
+        document.body.classList.remove('print-dossier');
+        window.removeEventListener('afterprint', cleanup);
+    };
+    window.addEventListener('afterprint', cleanup);
+
+    setTimeout(() => {
+        window.print();
+        /* safety net in case afterprint never fires */
+        setTimeout(cleanup, 4000);
+    }, 80);
+}
 
 /* ==========================================================================
    GOOGLE AUTH — PORTED FROM WORKING WORKSPACE
@@ -3846,6 +4053,12 @@ function startLoanFlow(type) {
     appSelectedTenure = null;
     appSelectedInterest = null;
 
+    /* Reset fee handling to default */
+    appFeeMode = 'upfront';
+    document.querySelectorAll('.fee-mode-card').forEach(c => {
+        c.classList.toggle('selected', c.dataset.mode === 'upfront');
+    });
+
     buildTenureCards();
     calcEMI();
     navigate('application');
@@ -3872,6 +4085,17 @@ function buildTenureCards() {
         container.appendChild(card);
     });
 }
+
+/* ==========================================================================
+   FEE MODE SELECTION   (NEW)
+   ========================================================================== */
+function selectFeeMode(mode, el) {
+    appFeeMode = (mode === 'emi') ? 'emi' : 'upfront';
+    document.querySelectorAll('.fee-mode-card').forEach(c => c.classList.remove('selected'));
+    if (el) el.classList.add('selected');
+    calcEMI();
+}
+
 function handleAgeChange() {
     const ageInput = document.getElementById('appAge');
     const block = document.getElementById('guardianBlock');
@@ -3947,27 +4171,62 @@ function selectTenure(months, cardEl) {
     cardEl.classList.add('selected');
     calcEMI();
 }
+
+/* ==========================================================================
+   EMI CALCULATION — NOW FEE-MODE AWARE   (UPDATED)
+   ========================================================================== */
 function calcEMI() {
     const amountInput = document.getElementById('appAmount');
-    const amount = parseFloat(amountInput ? amountInput.value : 0);
-    const feeEl = document.getElementById('recFee');
-    if (feeEl) feeEl.innerText = Util.formatINR(globalProcessingFee);
-    const emiEl = document.getElementById('recEmi');
-    const intEl = document.getElementById('recInterest');
-    const totEl = document.getElementById('recTotal');
+    const amount = parseFloat(amountInput ? amountInput.value : 0) || 0;
+
+    const feeEl  = document.getElementById('recFee');
+    const feeLbl = document.getElementById('recFeeLabel');
+    const emiEl  = document.getElementById('recEmi');
+    const intEl  = document.getElementById('recInterest');
+    const subEl  = document.getElementById('recSubtotal');
+    const prinEl = document.getElementById('recPrincipal');
+    const totEl  = document.getElementById('recTotal');
+
+    if (feeEl)  feeEl.innerText  = Util.formatINR(globalProcessingFee);
+    if (feeLbl) feeLbl.innerText = (appFeeMode === 'emi')
+        ? 'Processing Fee (Added to EMI)'
+        : 'Processing Fee (Payable Upfront)';
+
+    const blank = () => {
+        if (prinEl) prinEl.innerText = '₹0';
+        if (emiEl)  emiEl.innerText  = '₹0';
+        if (intEl)  intEl.innerText  = '₹0';
+        if (subEl)  subEl.innerText  = '₹0';
+        if (totEl)  totEl.innerText  = '₹0';
+    };
+
     if (isNaN(amount) || amount <= 0 || !appSelectedTenure) {
-        if (emiEl) emiEl.innerText = '₹0';
-        if (intEl) intEl.innerText = '₹0';
-        if (totEl) totEl.innerText = '₹0';
-        return { emi: 0, intAmt: 0, gross: 0 };
+        blank();
+        return { emi: 0, interest: 0, subtotal: 0, gross: 0 };
     }
-    const calc = Util.calcEMI(amount, appSelectedInterest, appSelectedTenure);
-    const gross = calc.total + globalProcessingFee;
-    if (emiEl) emiEl.innerText = Util.formatINR(calc.emi);
-    if (intEl) intEl.innerText = Util.formatINR(calc.interest);
-    if (totEl) totEl.innerText = Util.formatINR(gross);
-    return { emi: calc.emi, intAmt: calc.interest, gross: gross };
+
+    const base = Util.calcEMI(amount, appSelectedInterest, appSelectedTenure);
+    const subtotal = base.total;                       /* principal + interest */
+    const gross    = subtotal + globalProcessingFee;   /* always the full outflow */
+
+    let emi;
+    if (appFeeMode === 'emi') {
+        /* Fee is spread evenly across the tenure and collected with each EMI */
+        emi = Math.round(base.emi + (globalProcessingFee / appSelectedTenure));
+    } else {
+        /* Fee is settled upfront — EMI only covers principal + interest */
+        emi = base.emi;
+    }
+
+    if (prinEl) prinEl.innerText = Util.formatINR(amount);
+    if (emiEl)  emiEl.innerText  = Util.formatINR(emi);
+    if (intEl)  intEl.innerText  = Util.formatINR(base.interest);
+    if (subEl)  subEl.innerText  = Util.formatINR(subtotal);
+    if (totEl)  totEl.innerText  = Util.formatINR(gross);
+
+    return { emi: emi, interest: base.interest, subtotal: subtotal, gross: gross };
 }
+
 async function deploySmartContract() {
     const amountInput = document.getElementById('appAmount');
     const amount = parseFloat(amountInput.value);
@@ -4003,9 +4262,11 @@ async function deploySmartContract() {
         tenure: appSelectedTenure,
         interestRate: appSelectedInterest,
         emi: calcs.emi,
-        interestTotal: calcs.intAmt,
+        interestTotal: calcs.interest,
+        subtotal: calcs.subtotal,               /* principal + interest */
         processingFee: globalProcessingFee,
-        totalPayable: calcs.gross,
+        feeMode: appFeeMode,                    /* 'upfront' | 'emi' */
+        totalPayable: calcs.gross,              /* principal + interest + fee */
         status: 'Pending',
         isActive: false,
         completedEMIs: 0,
@@ -4239,7 +4500,7 @@ async function adminStateUpdate(key, state) {
 }
 
 /* ==========================================================================
-   ADMIN · VIEW DETAILS
+   ADMIN · VIEW DETAILS   (UPDATED — print header + fee handling)
    ========================================================================== */
 function openViewDetails(key) {
     const l = adminLedgerCache[key];
@@ -4254,6 +4515,10 @@ function openViewDetails(key) {
     const totalPaid = (Number(l.completedEMIs) || 0) * (Number(l.emi) || 0);
     const totalDue = (Number(l.remainingEMIs) || 0) * (Number(l.emi) || 0);
     const progressPct = l.tenure ? Math.round(((l.tenure - l.remainingEMIs) / l.tenure) * 100) : 0;
+    const feeModeText = (l.feeMode === 'emi') ? 'Added to EMI' : 'Paid Upfront';
+    const subtotal = (l.subtotal !== undefined && l.subtotal !== null)
+        ? Number(l.subtotal)
+        : (Number(l.amount) || 0) + (Number(l.interestTotal) || 0);
 
     const guardianSection = l.isMinor ? `
         <div class="detail-section">
@@ -4271,6 +4536,17 @@ function openViewDetails(key) {
         </div>` : '';
 
     body.innerHTML = `
+        <div class="print-head">
+            <div>
+                <div class="print-head-title">PlayCode Finance — Contract Dossier</div>
+                <div class="print-head-sub">${Util.escape(l.loanId || '')} &nbsp;·&nbsp; ${Util.escape(l.accNo || '')}</div>
+            </div>
+            <div class="print-head-right">
+                <div>Generated: ${new Date().toLocaleString('en-IN')}</div>
+                <div>PlayCode Systems · Markus John &amp; Vijay Kushwah</div>
+            </div>
+        </div>
+
         <div class="detail-hero">
             <div class="detail-avatar">${Util.initials(l.name)}</div>
             <div class="detail-hero-info">
@@ -4313,7 +4589,9 @@ function openViewDetails(key) {
                 <div class="detail-item"><div class="detail-key">Interest Rate (p.a.)</div><div class="detail-val am">${Number(l.interestRate || 0).toFixed(2)}%</div></div>
                 <div class="detail-item"><div class="detail-key">Monthly Instalment</div><div class="detail-val">${Util.formatINR(l.emi)}</div></div>
                 <div class="detail-item"><div class="detail-key">Total Interest</div><div class="detail-val rd">${Util.formatINR(l.interestTotal || 0)}</div></div>
+                <div class="detail-item"><div class="detail-key">Sub-Total (P + I)</div><div class="detail-val">${Util.formatINR(subtotal)}</div></div>
                 <div class="detail-item"><div class="detail-key">Processing Fee</div><div class="detail-val">${Util.formatINR(l.processingFee || 0)}</div></div>
+                <div class="detail-item"><div class="detail-key">Fee Handling</div><div class="detail-val bl">${feeModeText}</div></div>
                 <div class="detail-item"><div class="detail-key">Gross Payable</div><div class="detail-val big em">${Util.formatINR(l.totalPayable || 0)}</div></div>
                 <div class="detail-item"><div class="detail-key">Credit Score @ Application</div><div class="detail-val">${Util.escape(l.creditScoreSnapshot || '—')}</div></div>
             </div>
