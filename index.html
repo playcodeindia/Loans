@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -487,7 +488,7 @@ a{color:var(--blue-hi);text-decoration:none}
 .page-sub{font-size:13.5px;color:var(--txt-2);margin-top:2px}
 
 /* ==========================================================================
-   RECENT APPLICATIONS LIST  (NEW)
+   RECENT APPLICATIONS LIST
    ========================================================================== */
 .recent-list{display:flex;flex-direction:column}
 .recent-row{
@@ -739,7 +740,6 @@ a{color:var(--blue-hi);text-decoration:none}
     background:var(--line);
 }
 
-/* Login action buttons: keep each action on its own row */
 #login-options > button{
     display:flex;
     position:relative;
@@ -1454,6 +1454,28 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
 .chip-settled{background:var(--violet-soft);color:var(--violet);border-color:rgba(139,92,246,.3)}
 .chip-minor{background:var(--amber-soft);color:var(--amber);border-color:var(--amber-line)}
 
+/* ==========================================================================
+   MY LOANS FILTER BAR
+   ========================================================================== */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filter-chip{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:8px 15px; border-radius:var(--r-pill);
+    background:rgba(255,255,255,.045); border:1px solid var(--line);
+    color:var(--txt-2); font-size:12.5px; font-weight:600;
+    cursor:pointer; transition:all var(--t-fast) var(--ease);
+    font-family:var(--f-body);
+}
+.filter-chip:hover{color:#fff;background:rgba(255,255,255,.09);border-color:var(--line-strong)}
+.filter-chip.active{color:#fff;background:linear-gradient(140deg,#2563EB,#3B82F6);border-color:transparent;box-shadow:0 6px 18px -7px rgba(59,130,246,.85)}
+.filter-chip .count{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:20px; height:20px; padding:0 6px;
+    border-radius:var(--r-pill); font-size:10.5px; font-weight:700;
+    background:rgba(255,255,255,.12);
+}
+.filter-chip.active .count{background:rgba(255,255,255,.25)}
+
 .empty-state{padding:64px 24px;text-align:center}
 .empty-state .material-symbols-rounded{
     font-size:52px;
@@ -1884,205 +1906,55 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
 .print-head{display:none}
 
 @media print{
-    @page{
-        size:A4 landscape;
-        margin:8mm;
-    }
-
-    html,body{
-        width:auto !important;
-        height:auto !important;
-        min-height:0 !important;
-        margin:0 !important;
-        padding:0 !important;
-        background:#FFFFFF !important;
-        overflow:visible !important;
-        -webkit-print-color-adjust:exact;
-        print-color-adjust:exact;
-    }
+    @page{size:A4 landscape;margin:8mm}
+    html,body{width:auto !important;height:auto !important;min-height:0 !important;margin:0 !important;padding:0 !important;background:#FFFFFF !important;overflow:visible !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     body::before{display:none !important}
-
-    /* Only the dossier modal survives */
     body.print-dossier > *:not(#modal-details){display:none !important}
-
-    body.print-dossier #modal-details{
-        position:static !important;
-        inset:auto !important;
-        display:block !important;
-        visibility:visible !important;
-        opacity:1 !important;
-        padding:0 !important;
-        margin:0 !important;
-        background:#FFFFFF !important;
-        overflow:visible !important;
-        width:100% !important;
-        height:auto !important;
-    }
-    body.print-dossier #modal-details .modal-box{
-        max-width:none !important;
-        width:100% !important;
-        max-height:none !important;
-        height:auto !important;
-        margin:0 !important;
-        padding:0 !important;
-        border:none !important;
-        border-radius:0 !important;
-        box-shadow:none !important;
-        transform:none !important;
-        background:#FFFFFF !important;
-        display:block !important;
-        overflow:visible !important;
-        color:#0B1220 !important;
-    }
+    body.print-dossier #modal-details{position:static !important;inset:auto !important;display:block !important;visibility:visible !important;opacity:1 !important;padding:0 !important;margin:0 !important;background:#FFFFFF !important;overflow:visible !important;width:100% !important;height:auto !important}
+    body.print-dossier #modal-details .modal-box{max-width:none !important;width:100% !important;max-height:none !important;height:auto !important;margin:0 !important;padding:0 !important;border:none !important;border-radius:0 !important;box-shadow:none !important;transform:none !important;background:#FFFFFF !important;display:block !important;overflow:visible !important;color:#0B1220 !important}
     body.print-dossier #modal-details .modal-head,
     body.print-dossier #modal-details .modal-foot{display:none !important}
-
-    body.print-dossier #modal-details .modal-body{
-        padding:0 !important;
-        margin:0 !important;
-        overflow:visible !important;
-        max-height:none !important;
-        flex:none !important;
-    }
-
-    /* Print-only header */
-    body.print-dossier .print-head{
-        display:flex !important;
-        align-items:flex-end;
-        justify-content:space-between;
-        gap:12px;
-        border-bottom:2px solid #1D4ED8;
-        padding-bottom:5px;
-        margin-bottom:8px;
-    }
-    body.print-dossier .print-head-title{
-        font-family:'Outfit',sans-serif;
-        font-size:14px;
-        font-weight:800;
-        letter-spacing:-.02em;
-        color:#0B1220;
-    }
-    body.print-dossier .print-head-sub{
-        font-family:'JetBrains Mono',monospace;
-        font-size:8.5px;
-        color:#41506A;
-        margin-top:1px;
-    }
-    body.print-dossier .print-head-right{
-        text-align:right;
-        font-size:8px;
-        color:#41506A;
-        line-height:1.5;
-    }
-
-    /* Hero */
-    body.print-dossier .detail-hero{
-        background:#F2F6FC !important;
-        border:1px solid #C8D6EC !important;
-        border-radius:6px !important;
-        padding:7px 10px !important;
-        margin-bottom:7px !important;
-        gap:10px !important;
-        flex-wrap:nowrap !important;
-        align-items:center !important;
-    }
-    body.print-dossier .detail-avatar{
-        width:34px !important;height:34px !important;
-        border-radius:9px !important;
-        font-size:14px !important;
-        box-shadow:none !important;
-    }
+    body.print-dossier #modal-details .modal-body{padding:0 !important;margin:0 !important;overflow:visible !important;max-height:none !important;flex:none !important}
+    body.print-dossier .print-head{display:flex !important;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid #1D4ED8;padding-bottom:5px;margin-bottom:8px}
+    body.print-dossier .print-head-title{font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;letter-spacing:-.02em;color:#0B1220}
+    body.print-dossier .print-head-sub{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:#41506A;margin-top:1px}
+    body.print-dossier .print-head-right{text-align:right;font-size:8px;color:#41506A;line-height:1.5}
+    body.print-dossier .detail-hero{background:#F2F6FC !important;border:1px solid #C8D6EC !important;border-radius:6px !important;padding:7px 10px !important;margin-bottom:7px !important;gap:10px !important;flex-wrap:nowrap !important;align-items:center !important}
+    body.print-dossier .detail-avatar{width:34px !important;height:34px !important;border-radius:9px !important;font-size:14px !important;box-shadow:none !important}
     body.print-dossier .detail-hero-name{font-size:13.5px !important;color:#0B1220 !important}
     body.print-dossier .detail-hero-meta{font-size:9px !important;color:#4A5A75 !important;margin-top:1px !important}
     body.print-dossier .detail-hero-info{min-width:0 !important}
     body.print-dossier .detail-hero-chips{flex-wrap:nowrap !important;gap:5px !important}
-
-    /* Sections */
-    body.print-dossier .detail-section{
-        margin-bottom:6px !important;
-        break-inside:avoid;
-        page-break-inside:avoid;
-    }
+    body.print-dossier .detail-section{margin-bottom:6px !important;break-inside:avoid;page-break-inside:avoid}
     body.print-dossier .detail-section:last-child{margin-bottom:0 !important}
-
-    body.print-dossier .section-label{
-        font-size:7.5px !important;
-        color:#41506A !important;
-        margin-bottom:3px !important;
-        letter-spacing:.13em !important;
-        gap:5px !important;
-    }
+    body.print-dossier .section-label{font-size:7.5px !important;color:#41506A !important;margin-bottom:3px !important;letter-spacing:.13em !important;gap:5px !important}
     body.print-dossier .section-label::after{background:linear-gradient(90deg,#D5DEEB,transparent) !important}
     body.print-dossier .section-label .material-symbols-rounded{font-size:11px !important;color:#41506A !important}
-
-    /* Grids */
-    body.print-dossier .detail-grid{
-        grid-template-columns:repeat(4,1fr) !important;
-        background:#D5DEEB !important;
-        border:1px solid #D5DEEB !important;
-        border-radius:5px !important;
-        gap:1px !important;
-        overflow:visible !important;
-    }
-    body.print-dossier .detail-item{
-        background:#FFFFFF !important;
-        padding:5px 7px !important;
-    }
+    body.print-dossier .detail-grid{grid-template-columns:repeat(4,1fr) !important;background:#D5DEEB !important;border:1px solid #D5DEEB !important;border-radius:5px !important;gap:1px !important;overflow:visible !important}
+    body.print-dossier .detail-item{background:#FFFFFF !important;padding:5px 7px !important}
     body.print-dossier .detail-item.full{grid-column:1/-1 !important}
-    body.print-dossier .detail-key{
-        font-size:6.8px !important;
-        color:#5C6B85 !important;
-        margin-bottom:1px !important;
-        letter-spacing:.1em !important;
-    }
-    body.print-dossier .detail-val{
-        font-size:9.2px !important;
-        color:#0B1220 !important;
-        line-height:1.35 !important;
-        font-weight:600 !important;
-    }
+    body.print-dossier .detail-key{font-size:6.8px !important;color:#5C6B85 !important;margin-bottom:1px !important;letter-spacing:.1em !important}
+    body.print-dossier .detail-val{font-size:9.2px !important;color:#0B1220 !important;line-height:1.35 !important;font-weight:600 !important}
     body.print-dossier .detail-val.mono{font-size:8.4px !important}
     body.print-dossier .detail-val.big{font-size:12px !important}
     body.print-dossier .detail-val.em{color:#047857 !important}
     body.print-dossier .detail-val.rd{color:#B91C1C !important}
     body.print-dossier .detail-val.am{color:#B45309 !important}
     body.print-dossier .detail-val.bl{color:#1D4ED8 !important}
-
-    /* Guardian */
-    body.print-dossier .guardian-panel{
-        background:#FFF8EC !important;
-        border:1px solid #E8CFA0 !important;
-        border-radius:5px !important;
-        padding:6px !important;
-    }
-    body.print-dossier .guardian-panel .detail-grid{
-        background:#E8DCC4 !important;
-        border-color:#E8DCC4 !important;
-    }
+    body.print-dossier .guardian-panel{background:#FFF8EC !important;border:1px solid #E8CFA0 !important;border-radius:5px !important;padding:6px !important}
+    body.print-dossier .guardian-panel .detail-grid{background:#E8DCC4 !important;border-color:#E8DCC4 !important}
     body.print-dossier .guardian-panel .detail-item{background:#FFFFFF !important}
-
-    /* Chips / progress */
-    body.print-dossier .chip{
-        background:#F4F7FB !important;
-        border:1px solid #B9C7DC !important;
-        color:#22304C !important;
-        font-size:7px !important;
-        padding:1px 6px !important;
-        gap:4px !important;
-    }
+    body.print-dossier .chip{background:#F4F7FB !important;border:1px solid #B9C7DC !important;color:#22304C !important;font-size:7px !important;padding:1px 6px !important;gap:4px !important}
     body.print-dossier .chip::before{background:#22304C !important;width:4px !important;height:4px !important}
     body.print-dossier .mini-progress{background:#E2E8F2 !important;height:5px !important;margin-top:4px !important}
     body.print-dossier .mini-progress-bar{background:#1D4ED8 !important}
-
     body.print-dossier .flex-between.mt-2{margin-top:3px !important}
     body.print-dossier .flex-between.mt-2 .fs-12{font-size:7.5px !important}
 }
 
 /* ==========================================================================
-   MOBILE OPTIMISATION  (NEW)
+   MOBILE OPTIMISATION
    ========================================================================== */
-
-/* --- Large tablets / small laptops --- */
 @media (max-width: 980px){
     .login-shell{ flex-direction:column; min-height:100dvh; }
     .login-art{
@@ -2108,31 +1980,15 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .login-form-box{margin:0 auto}
 }
 
-/* --- Phones --- */
 @media (max-width: 760px){
-
-    /* ----- LOGIN (portrait focused) ----- */
-    .login-art{
-        padding:22px 18px 20px;
-        gap:10px;
-        text-align:left;
-    }
-    .art-badge{
-        margin-bottom:14px;
-        font-size:10.5px;
-        padding:6px 13px;
-    }
+    .login-art{padding:22px 18px 20px;gap:10px;text-align:left}
+    .art-badge{margin-bottom:14px;font-size:10.5px;padding:6px 13px}
     .art-logo{height:42px;margin-bottom:12px;border-radius:13px}
-    .art-title{
-        font-size:clamp(23px,7vw,32px);
-        margin-bottom:0;
-        line-height:1.1;
-    }
+    .art-title{font-size:clamp(23px,7vw,32px);margin-bottom:0;line-height:1.1}
     .art-title br{display:none}
     .art-desc{display:none}
     .art-stats{display:none}
     .login-art::after{opacity:.6}
-
     .login-form-side{padding:24px 16px 44px}
     .auth-title{font-size:24px;letter-spacing:-.028em}
     .auth-sub{font-size:13px;margin-bottom:22px}
@@ -2146,22 +2002,15 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .minor-alert-text{font-size:11.8px}
     .google-note{font-size:11px}
 
-    /* ----- HEADER ----- */
     .header-dock{padding:10px 10px 0}
     .float-header{border-radius:var(--r-lg)}
-    .fh-inner{
-        flex-wrap:wrap;
-        gap:10px;
-        padding:10px 12px;
-        row-gap:10px;
-    }
+    .fh-inner{flex-wrap:wrap;gap:10px;padding:10px 12px;row-gap:10px}
     .brand-block{flex:1 1 auto;min-width:0;gap:9px}
     .brand-mark{width:36px;height:36px;border-radius:11px}
     .brand-title{font-size:14.5px}
     .brand-sub{font-size:9px;letter-spacing:.11em}
     .brand-words{min-width:0}
     .brand-title,.brand-sub{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
     .fh-actions{gap:6px;flex-wrap:wrap;justify-content:flex-end}
     .fh-actions .btn-sm{padding:7px 10px;font-size:11.5px}
     .fh-actions .btn-sm .material-symbols-rounded{font-size:14px}
@@ -2169,33 +2018,21 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .user-chip{padding:4px 10px 4px 4px;gap:8px}
     .user-avatar{width:27px;height:27px;font-size:12px}
     .user-name{max-width:78px;font-size:12px}
-
-    .fh-nav{
-        order:3;
-        width:100%;
-        justify-content:flex-start;
-        border-radius:var(--r-md);
-        padding:4px;
-        gap:3px;
-    }
+    .fh-nav{order:3;width:100%;justify-content:flex-start;border-radius:var(--r-md);padding:4px;gap:3px}
     .nav-pill{padding:8px 12px;font-size:12.5px;gap:6px}
     .nav-pill .material-symbols-rounded{font-size:16px}
 
-    /* ----- MAIN LAYOUT ----- */
     .app-main{padding:16px 12px 48px}
     .page-title-row{margin-bottom:16px;gap:12px}
     .page-title{font-size:20px}
     .page-sub{font-size:12.5px}
     .page-title-row .btn{width:100%}
-
     .card{padding:18px;border-radius:var(--r-lg)}
     .card-flat{padding:16px;border-radius:var(--r-md)}
     .card-head{padding-bottom:14px;margin-bottom:16px;gap:10px;flex-wrap:wrap}
     .card-head h3{font-size:15.5px}
-
     .section-label{font-size:10px;margin-bottom:10px}
 
-    /* ----- SCORE PANEL ----- */
     .score-panel{gap:14px;margin-bottom:20px}
     .score-card{padding:22px 18px}
     .score-ring{width:166px;height:166px;margin:14px auto 18px}
@@ -2205,7 +2042,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .limit-strip{padding:10px 18px;gap:8px;flex-wrap:wrap;justify-content:center}
     .limit-strip .val{font-size:17px}
 
-    /* ----- STAT GRID ----- */
     .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
     .stat-box{padding:14px 13px;border-radius:var(--r-md)}
     .stat-box:hover{transform:none}
@@ -2215,14 +2051,12 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .stat-value{font-size:19px;letter-spacing:-.03em;word-break:break-word}
     .stat-sub{font-size:10.5px}
 
-    /* ----- RECENT LIST ----- */
     .recent-row{gap:11px;padding:12px 0}
     .recent-icon{width:36px;height:36px;border-radius:11px}
     .recent-icon .material-symbols-rounded{font-size:18px}
     .recent-title{font-size:13px}
     .recent-meta{font-size:10.5px}
 
-    /* ----- PRODUCTS ----- */
     .product-grid{grid-template-columns:1fr;gap:14px}
     .product-card{padding:20px;border-radius:var(--r-lg)}
     .product-card:hover{transform:none}
@@ -2233,7 +2067,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .product-meta{gap:14px;padding-top:13px;margin-bottom:16px}
     .product-meta-item strong{font-size:15px}
 
-    /* ----- APPLICATION FLOW ----- */
     .stepper{margin-bottom:24px;max-width:100%}
     .stepper::before{left:30px;right:30px}
     .stepper::after{left:30px}
@@ -2258,14 +2091,11 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .form-row{grid-template-columns:1fr;gap:0}
     .form-row .form-group{margin-bottom:18px}
     .form-row .form-group:last-child{margin-bottom:18px}
-
-    /* prevent iOS focus zoom */
     .form-control{font-size:16px;padding:13px 14px}
     .input-shell .form-control.has-icon{padding-left:44px}
     .input-shell .form-control.has-prefix{padding-left:42px}
     textarea.form-control{font-size:16px}
 
-    /* ----- TABLES → CARDS ----- */
     .table-shell{border-radius:var(--r-lg)}
     .table-toolbar{padding:14px 14px;gap:10px}
     .table-toolbar h3{font-size:14.5px}
@@ -2274,38 +2104,12 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .data-table{min-width:0;width:100%;display:block}
     .data-table thead{display:none}
     .data-table tbody{display:block}
-    .data-table tbody tr{
-        display:block;
-        background:rgba(255,255,255,.022);
-        border:1px solid var(--line);
-        border-radius:var(--r-md);
-        padding:10px 13px;
-        margin-bottom:11px;
-    }
+    .data-table tbody tr{display:block;background:rgba(255,255,255,.022);border:1px solid var(--line);border-radius:var(--r-md);padding:10px 13px;margin-bottom:11px}
     .data-table tbody tr:last-child{margin-bottom:0}
     .data-table tbody tr:hover{background:rgba(255,255,255,.022)}
-    .data-table tbody td{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
-        padding:7px 0;
-        border-bottom:1px dashed var(--line-soft);
-        font-size:12.8px;
-        text-align:right;
-        min-height:34px;
-    }
+    .data-table tbody td{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line-soft);font-size:12.8px;text-align:right;min-height:34px}
     .data-table tbody td:last-child{border-bottom:none;padding-bottom:2px}
-    .data-table tbody td::before{
-        content:attr(data-label);
-        flex:0 0 auto;
-        font-size:9.5px;
-        font-weight:700;
-        letter-spacing:.1em;
-        text-transform:uppercase;
-        color:var(--txt-3);
-        text-align:left;
-    }
+    .data-table tbody td::before{content:attr(data-label);flex:0 0 auto;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);text-align:left}
     .data-table tbody td[colspan]{display:block;padding:0;border:none;min-height:0}
     .data-table tbody td[colspan]::before{display:none}
     .data-table .cell-entity{text-align:right}
@@ -2316,23 +2120,14 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .empty-state{padding:40px 16px}
     .empty-state .material-symbols-rounded{font-size:42px}
 
-    /* ----- MODALS ----- */
     .modal-overlay{padding:12px;align-items:flex-start;padding-top:18px;padding-bottom:18px}
-    .modal-box{
-        max-height:none;
-        border-radius:var(--r-lg);
-        margin:auto 0;
-    }
+    .modal-box{max-height:none;border-radius:var(--r-lg);margin:auto 0}
     .modal-overlay.active .modal-box{transform:none}
     .modal-head{padding:16px 16px;gap:12px}
     .modal-head h3{font-size:16px}
     .modal-head .sub{font-size:11.5px}
     .modal-body{padding:16px}
-    .modal-foot{
-        padding:14px 16px;
-        gap:8px;
-        justify-content:stretch;
-    }
+    .modal-foot{padding:14px 16px;gap:8px;justify-content:stretch}
     .modal-foot .btn{flex:1 1 auto;min-width:120px}
     .modal-close{width:32px;height:32px}
 
@@ -2358,24 +2153,19 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     .success-icon{width:68px;height:68px;margin-bottom:18px}
     .success-icon .material-symbols-rounded{font-size:36px}
 
-    /* ----- MISC ----- */
-    .site-foot{
-        margin-top:36px;
-        padding:20px 14px 32px;
-        font-size:11.5px;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:8px;
-    }
+    .site-foot{margin-top:36px;padding:20px 14px 32px;font-size:11.5px;flex-direction:column;align-items:flex-start;gap:8px}
     .toast-host{bottom:16px;width:calc(100% - 20px)}
     .toast{padding:12px 15px;font-size:12.8px}
 
     .flex-between.wrap{gap:10px}
     .tab-bar{width:100%;justify-content:flex-start}
     .tab-btn{padding:9px 14px;font-size:12px}
+
+    .filter-bar{gap:6px}
+    .filter-chip{padding:7px 12px;font-size:11.5px;gap:5px}
+    .filter-chip .count{min-width:18px;height:18px;font-size:10px}
 }
 
-/* --- Small phones --- */
 @media (max-width: 400px){
     .stat-grid{grid-template-columns:1fr}
     .stat-box-icon{margin-bottom:8px}
@@ -2600,28 +2390,28 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                         <div class="stat-sub">Awaiting underwriting</div>
                     </div>
                     <div class="stat-box">
+                        <div class="stat-box-icon rd"><span class="material-symbols-rounded">cancel</span></div>
+                        <div class="stat-label">Rejected</div>
+                        <div class="stat-value text-error" id="uiRejectedLoans">0</div>
+                        <div class="stat-sub">Declined applications</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-icon"><span class="material-symbols-rounded">task_alt</span></div>
+                        <div class="stat-label">Settled / Completed</div>
+                        <div class="stat-value text-muted" id="uiSettledLoans">0</div>
+                        <div class="stat-sub">Successfully closed</div>
+                    </div>
+                    <div class="stat-box">
                         <div class="stat-box-icon am"><span class="material-symbols-rounded">account_balance</span></div>
                         <div class="stat-label">Total Outstanding</div>
                         <div class="stat-value" id="uiTotalOutstanding">₹0</div>
                         <div class="stat-sub">Remaining principal + interest</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-box-icon"><span class="material-symbols-rounded">task_alt</span></div>
-                        <div class="stat-label">Settled Contracts</div>
-                        <div class="stat-value text-muted" id="uiSettledLoans">0</div>
-                        <div class="stat-sub">Successfully closed</div>
-                    </div>
-                    <div class="stat-box">
                         <div class="stat-box-icon vi"><span class="material-symbols-rounded">receipt_long</span></div>
                         <div class="stat-label">Total Applications</div>
                         <div class="stat-value" id="uiTotalApplications">0</div>
                         <div class="stat-sub">All time</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-box-icon vi"><span class="material-symbols-rounded">percent</span></div>
-                        <div class="stat-label">Processing Fee</div>
-                        <div class="stat-value" id="uiProcessingFee">₹249</div>
-                        <div class="stat-sub">Per contract</div>
                     </div>
                 </div>
             </div>
@@ -2647,7 +2437,7 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                     <p class="product-desc">Instant capital deployment for personal requirements with algorithmically computed reducing-balance interest curves.</p>
                     <div class="product-meta">
                         <div class="product-meta-item">Rate From<strong id="prodRatePersonal">8%</strong></div>
-                        <div class="product-meta-item">Max Tenure<strong>12M</strong></div>
+                        <div class="product-meta-item">Max Tenure<strong id="prodTenurePersonal">12M</strong></div>
                     </div>
                 </div>
                 <button class="btn btn-surface btn-block">
@@ -2662,7 +2452,7 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                     <p class="product-desc">High-grade operational funding built for project expansion with flexible multi-tenure repayment schedules.</p>
                     <div class="product-meta">
                         <div class="product-meta-item">Rate From<strong id="prodRateBusiness">8%</strong></div>
-                        <div class="product-meta-item">Max Tenure<strong>12M</strong></div>
+                        <div class="product-meta-item">Max Tenure<strong id="prodTenureBusiness">12M</strong></div>
                     </div>
                 </div>
                 <button class="btn btn-surface btn-block">
@@ -2676,8 +2466,8 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                     <h2 class="product-title">Emergency Bridge</h2>
                     <p class="product-desc">Short-cycle micro capital for urgent requirements with priority underwriting and same-day approval routing.</p>
                     <div class="product-meta">
-                        <div class="product-meta-item">Rate From<strong>8%</strong></div>
-                        <div class="product-meta-item">Max Tenure<strong>12M</strong></div>
+                        <div class="product-meta-item">Rate From<strong id="prodRateEmergency">8%</strong></div>
+                        <div class="product-meta-item">Max Tenure<strong id="prodTenureEmergency">12M</strong></div>
                     </div>
                 </div>
                 <button class="btn btn-surface btn-block">
@@ -2859,7 +2649,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
                     <div class="tenure-grid" id="tenureContainer"></div>
                 </div>
 
-                <!-- ============ PROCESSING FEE HANDLING ============ -->
                 <div class="form-group">
                     <label class="form-label">
                         <span>Processing Fee Handling <span class="req">*</span></span>
@@ -2971,6 +2760,27 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
             </div>
             <button class="btn btn-surface btn-sm" onclick="fetchMyLedger()">
                 <span class="material-symbols-rounded">refresh</span> Refresh
+            </button>
+        </div>
+
+        <div class="filter-bar" id="myLoansFilterBar">
+            <button class="filter-chip active" data-status="all" onclick="setMyLoansFilter('all', this)">
+                All <span class="count" id="cnt-all">0</span>
+            </button>
+            <button class="filter-chip" data-status="pending" onclick="setMyLoansFilter('pending', this)">
+                Pending <span class="count" id="cnt-pending">0</span>
+            </button>
+            <button class="filter-chip" data-status="approved" onclick="setMyLoansFilter('approved', this)">
+                Approved <span class="count" id="cnt-approved">0</span>
+            </button>
+            <button class="filter-chip" data-status="rejected" onclick="setMyLoansFilter('rejected', this)">
+                Rejected <span class="count" id="cnt-rejected">0</span>
+            </button>
+            <button class="filter-chip" data-status="completed" onclick="setMyLoansFilter('completed', this)">
+                Completed <span class="count" id="cnt-completed">0</span>
+            </button>
+            <button class="filter-chip" data-status="settled" onclick="setMyLoansFilter('settled', this)">
+                Settled <span class="count" id="cnt-settled">0</span>
             </button>
         </div>
 
@@ -3274,7 +3084,7 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
             </div>
             <div class="policy-note" style="margin-top:22px;margin-bottom:0;">
                 <span class="material-symbols-rounded">lightbulb</span>
-                <div>Changes are published to the live database and immediately affect all new contract calculations. Existing contracts retain their original rate.</div>
+                <div>Changes are published to the live database and immediately affect all new contract calculations. <strong>Existing contracts retain their original rate.</strong> Once published, these values persist across reloads and are never reset to default unless you explicitly publish new values.</div>
             </div>
         </div>
         <div class="modal-foot">
@@ -3445,7 +3255,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     </div>
 </div>
 
-<!-- Google account not linked -->
 <div class="modal-overlay" id="modal-google-link">
    <div class="modal-box narrow">
        <div class="modal-head">
@@ -3479,7 +3288,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
    </div>
 </div>
 
-<!-- Manage Google modal -->
 <div class="modal-overlay" id="modal-manage-google">
     <div class="modal-box narrow">
         <div class="modal-head">
@@ -3526,7 +3334,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
     </div>
 </div>
 
-<!-- Google create-account modal -->
 <div class="modal-overlay" id="modal-google-create">
    <div class="modal-box narrow">
        <div class="modal-head">
@@ -3562,7 +3369,6 @@ select.form-control option{background:#0E1626;color:#EEF3FB}
    </div>
 </div>
 
-<!-- Google admin access modal -->
 <div class="modal-overlay" id="modal-google-admin">
    <div class="modal-box narrow">
        <div class="modal-head">
@@ -3616,6 +3422,19 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 /* ==========================================================================
    GLOBAL STATE
    ========================================================================== */
+
+/* FALLBACK defaults — only used if Firebase has NO saved rates. */
+const DEFAULT_INTEREST_MATRIX = { 1: 8, 2: 10, 3: 15, 6: 16, 8: 16, 12: 18 };
+
+/* The live matrix — starts empty. Populated from Firebase. */
+let interestMatrix = {};
+
+/* Flag: has Firebase responded yet? */
+let interestRatesLoaded = false;
+let interestRatesLoadPromise = null;
+let interestRatesLoadResolve = null;
+let interestRatesLoadReject = null;
+
 let activeUser = null;
 let globalProcessingFee = 249;
 let userCreditScore = 283;
@@ -3624,9 +3443,7 @@ let currentAdminTab = 'registry';
 let appLoanType = 'Personal';
 let appSelectedTenure = null;
 let appSelectedInterest = null;
-let appFeeMode = 'upfront';          /* 'upfront' | 'emi' */
-
-let interestMatrix = { 1: 8, 2: 10, 3: 15, 6: 16, 8: 16, 12: 18 };
+let appFeeMode = 'upfront';
 
 let draftMatrix = {};
 
@@ -3636,12 +3453,12 @@ let activeAdminTargetDetails = null;
 let activeDetailLoanKey = null;
 let activeDetailLoanData = null;
 
-/* Google state — mirrors the working workspace implementation */
 let googleAuthInProgress = false;
 let googleAuthRestoreInProgress = false;
 
-/* User loans realtime listener handle */
 let userLoansListenerRef = null;
+let cachedUserLoans = [];
+let myLoansCurrentFilter = 'all';
 
 /* ==========================================================================
    UTILITIES
@@ -3734,21 +3551,47 @@ const Util = {
     validatePhone: (phone) => /^[6-9]\d{9}$/.test(String(phone).trim()),
 
     calcEMI: (principal, annualRate, months) => {
-        if (!principal || principal <= 0 || !months || months <= 0) {
+        principal = Number(principal);
+        annualRate = Number(annualRate);
+        months = Number(months);
+
+        if (!Number.isFinite(principal) || principal <= 0 ||
+            !Number.isFinite(months) || months <= 0) {
             return { emi: 0, total: 0, interest: 0 };
         }
-        if (!annualRate || annualRate <= 0) {
-            const emi = principal / months;
-            return { emi: Math.round(emi), total: Math.round(principal), interest: 0 };
+
+        if (!Number.isFinite(annualRate) || annualRate < 0) {
+            return { emi: 0, total: 0, interest: 0 };
         }
+
+        if (annualRate === 0) {
+            const emi = principal / months;
+            return {
+                emi: Math.round(emi),
+                total: Math.round(principal),
+                interest: 0
+            };
+        }
+
         const r = (annualRate / 100) / 12;
         const pow = Math.pow(1 + r, months);
-        const emi = principal * r * pow / (pow - 1);
-        const total = emi * months;
+        const denominator = pow - 1;
+
+        if (!Number.isFinite(pow) || denominator <= 0) {
+            return { emi: 0, total: 0, interest: 0 };
+        }
+
+        const emiExact = principal * r * pow / denominator;
+        const totalExact = emiExact * months;
+
+        if (!Number.isFinite(emiExact) || !Number.isFinite(totalExact)) {
+            return { emi: 0, total: 0, interest: 0 };
+        }
+
         return {
-            emi: Math.round(emi),
-            total: Math.round(total),
-            interest: Math.round(total - principal)
+            emi: Math.round(emiExact),
+            total: Math.round(totalExact),
+            interest: Math.max(0, Math.round(totalExact - principal))
         };
     }
 };
@@ -3808,7 +3651,6 @@ function printDossier() {
 
     setTimeout(() => {
         window.print();
-        /* safety net in case afterprint never fires */
         setTimeout(cleanup, 4000);
     }, 80);
 }
@@ -3816,8 +3658,6 @@ function printDossier() {
 /* ==========================================================================
    GOOGLE AUTH
    ========================================================================== */
-
-/* Apply Google photo + verified tick on the avatar */
 function applyUserAvatars(user) {
     const inner = document.getElementById('userAvatarInner');
     const badge = document.getElementById('avatarVerify');
@@ -3844,7 +3684,6 @@ function applyUserAvatars(user) {
     }
     if (badge) badge.classList.toggle('show', !!photo);
 
-    /* Also update the "link / unlink" icon button */
     const icon = document.getElementById('googleLinkIcon');
     const btn = document.getElementById('googleLinkBtn');
     if (icon && btn) {
@@ -3860,7 +3699,6 @@ function applyUserAvatars(user) {
     }
 }
 
-/* Restore Google session on load if Firebase has a signed-in Google user */
 function initializeFirebaseAuth() {
     auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .catch(err => console.warn('Auth persistence setup failed:', err));
@@ -3879,34 +3717,19 @@ function initializeFirebaseAuth() {
     });
 }
 
-/* Indexed lookup of PlayCode user by Google UID */
+/* Full-scan lookup of PlayCode user by Google UID — no index needed */
 function findPlayCodeUserByGoogleUid(uid) {
     if (!uid) return Promise.resolve(null);
-    return db.ref('users')
-        .orderByChild('googleUid')
-        .equalTo(uid)
-        .once('value')
-        .then(snapshot => {
-            let found = null;
-            if (snapshot.exists()) {
-                snapshot.forEach(child => { if (!found) found = child.val(); });
-            }
-            return found;
-        })
-        .catch(err => {
-            console.warn('Indexed googleUid query failed, falling back to scan:', err && err.message);
-            return db.ref('users').once('value').then(snap => {
-                let found = null;
-                snap.forEach(child => {
-                    const u = child.val();
-                    if (u && u.googleUid === uid && !found) found = u;
-                });
-                return found;
-            });
+    return db.ref('users').once('value').then(snap => {
+        let found = null;
+        snap.forEach(child => {
+            const u = child.val();
+            if (u && u.googleUid === uid && !found) found = u;
         });
+        return found;
+    });
 }
 
-/* Silent session restore */
 async function restoreGooglePlayCodeSession(firebaseUser) {
     if (!firebaseUser || googleAuthRestoreInProgress) return;
     googleAuthRestoreInProgress = true;
@@ -3959,7 +3782,6 @@ async function restoreGooglePlayCodeSession(firebaseUser) {
     }
 }
 
-/* Friendly Google error messages */
 function handleGoogleAuthError(error) {
     const code = (error && error.code) ? error.code : '';
     let message = 'Google sign-in failed. Please try again.';
@@ -3987,7 +3809,6 @@ function handleGoogleAuthError(error) {
     Util.toast(message, 'error');
 }
 
-/* Public entry: "Continue with Google" */
 async function googleSignIn() {
     if (googleAuthInProgress) return;
     googleAuthInProgress = true;
@@ -4058,7 +3879,6 @@ async function googleSignIn() {
     }
 }
 
-/* Link Google to currently signed-in PlayCode account */
 async function linkGoogleAccount() {
     if (!activeUser) {
         Util.toast('Please sign in first.', 'warning');
@@ -4111,9 +3931,6 @@ async function linkGoogleAccount() {
     }
 }
 
-/* ============================================================
-  GOOGLE ACCOUNT CREATION
-  ============================================================ */
 let pendingGoogleCreateUser = null;
 
 function escapeHtmlSafe(value) {
@@ -4238,11 +4055,6 @@ function cancelGoogleCreateFlow() {
     closeModal('modal-google-create');
 }
 
-function startGoogleAccountLinkFromSignIn() {
-    googleLinkGoToWorkspace();
-}
-
-/* Manage linked Google modal */
 function showManageGoogleModal() {
     if (!activeUser || !activeUser.googleUid) return;
     const emailEl = document.getElementById('manageGoogleEmail');
@@ -4256,7 +4068,6 @@ function showManageGoogleModal() {
     openModal('modal-manage-google');
 }
 
-/* Unlink */
 async function unlinkGoogleAccount() {
     if (!activeUser) return;
     if (!activeUser.googleUid) { Util.toast('No Google account linked.', 'warning'); return; }
@@ -4286,18 +4097,6 @@ async function unlinkGoogleAccount() {
     }
 }
 
-/* Ensure Firebase Auth session matches current PlayCode user after SAR login */
-function reconcileFirebaseAuthWithUser(user) {
-    try {
-        const fbUser = auth.currentUser;
-        if (!fbUser || !user) return;
-        if (!user.googleUid || fbUser.uid !== user.googleUid) {
-            auth.signOut().catch(() => {});
-        }
-    } catch (e) {}
-}
-
-/* Header button behaviour */
 function handleGoogleLinkClick() {
     if (!activeUser) return;
     if (activeUser.googleUid) {
@@ -4307,18 +4106,12 @@ function handleGoogleLinkClick() {
     }
 }
 
-/* Not-linked modal actions */
 function googleLinkGoToWorkspace() {
     window.open('https://playcodeindia.github.io/Balance', '_blank', 'noopener');
 }
-function googleLinkUseSar() {
-    closeModal('modal-google-link');
-    toggleLoginMode('customer');
-    Util.toast('Sign in with Account & SAR to link this Google account.', 'info');
-}
 
 /* ==========================================================================
-   LOGIN FLOW (Account + SAR)
+   LOGIN FLOW
    ========================================================================== */
 function toggleLoginMode(mode) {
    const options = document.getElementById('login-options');
@@ -4327,10 +4120,6 @@ function toggleLoginMode(mode) {
    if (options) options.classList.remove('hidden');
    if (customer) customer.classList.add('hidden');
    if (admin) admin.classList.add('hidden');
-}
-
-async function executeCustomerLogin() {
-   Util.toast('Manual Account Number + SAR login is no longer available. Please use Continue with Google.', 'warning');
 }
 
 function showAdminModal() {
@@ -4414,9 +4203,7 @@ function updateScoreRing(score) {
     }
 }
 
-/* ---- NEW: cached user loans + dashboard rendering ---- */
-let cachedUserLoans = [];
-
+/* ---- Recent list rendering ---- */
 function recentIconFor(status) {
     const s = String(status || '').toLowerCase();
     if (s === 'pending') return 'hourglass_top';
@@ -4465,9 +4252,10 @@ function renderDashboardRecent(rows) {
     `).join('');
 }
 
+/* ---- Apply user loan stats (all statuses) ---- */
 function applyUserLoanStats(rows) {
     const list = Array.isArray(rows) ? rows : [];
-    let completed = 0, settled = 0, active = 0, pending = 0;
+    let completed = 0, settled = 0, active = 0, pending = 0, rejected = 0;
     let outstanding = 0, late = 0;
     let overrideScore = null;
 
@@ -4476,6 +4264,7 @@ function applyUserLoanStats(rows) {
         if (st === 'Completed') completed++;
         if (st === 'Settled') settled++;
         if (st === 'Pending') pending++;
+        if (st === 'Rejected') rejected++;
         if (l.latePayments) late += Number(l.latePayments) || 0;
         if (l.isActive) {
             active++;
@@ -4494,12 +4283,12 @@ function applyUserLoanStats(rows) {
 
     Util.animateCount('uiActiveLoans', active);
     Util.animateCount('uiPendingLoans', pending);
+    Util.animateCount('uiRejectedLoans', rejected);
+    Util.animateCount('uiSettledLoans', settled + completed);
     Util.animateCount('uiTotalApplications', list.length);
 
     const outEl = document.getElementById('uiTotalOutstanding');
     if (outEl) outEl.innerText = Util.formatINR(outstanding);
-
-    Util.animateCount('uiSettledLoans', settled + completed);
 
     const feeEl = document.getElementById('uiProcessingFee');
     if (feeEl) feeEl.innerText = Util.formatINR(globalProcessingFee);
@@ -4507,9 +4296,11 @@ function applyUserLoanStats(rows) {
     setTimeout(() => updateScoreRing(userCreditScore), 80);
 
     renderDashboardRecent(list);
+    updateMyLoansFilterCounts(list);
+    renderMyLoansTable(list, myLoansCurrentFilter);
 }
 
-/* Realtime listener for the signed-in user's loans */
+/* Realtime listener for user's loans — full scan, no index needed */
 function attachUserLoansListener(accNo) {
     if (userLoansListenerRef) {
         try { userLoansListenerRef.off(); } catch (e) {}
@@ -4517,28 +4308,34 @@ function attachUserLoansListener(accNo) {
     }
     if (!accNo) return;
 
-    userLoansListenerRef = db.ref('loans').orderByChild('accNo').equalTo(accNo);
+    userLoansListenerRef = db.ref('loans');
     userLoansListenerRef.on('value', snap => {
         const rows = [];
         if (snap.exists()) {
             snap.forEach(child => {
-                rows.push(Object.assign({ _key: child.key }, child.val() || {}));
+                const l = child.val() || {};
+                if (String(l.accNo) === String(accNo) || (activeUser && l.uid && String(l.uid) === String(getFirebaseUid()))) {
+                    rows.push(Object.assign({ _key: child.key }, l));
+                }
             });
         }
         rows.sort((a, b) => new Date(b.appliedDate || 0) - new Date(a.appliedDate || 0));
         cachedUserLoans = rows;
         applyUserLoanStats(rows);
-    });
+    }, err => console.warn('Loans listener failed:', err));
 }
 
 async function computeLiveCreditScore() {
     if (!activeUser) return;
     try {
-        const snap = await db.ref('loans').orderByChild('accNo').equalTo(activeUser.accNo).once('value');
+        const snap = await db.ref('loans').once('value');
         const rows = [];
         if (snap.exists()) {
             snap.forEach(child => {
-                rows.push(Object.assign({ _key: child.key }, child.val() || {}));
+                const l = child.val() || {};
+                if (String(l.accNo) === String(activeUser.accNo) || (l.uid && String(l.uid) === String(getFirebaseUid()))) {
+                    rows.push(Object.assign({ _key: child.key }, l));
+                }
             });
         }
         rows.sort((a, b) => new Date(b.appliedDate || 0) - new Date(a.appliedDate || 0));
@@ -4558,20 +4355,34 @@ function populateDashboard() {
     computeLiveCreditScore();
     updateProductRates();
 }
+
+/* ==========================================================================
+   PRODUCT RATE DISPLAY
+   ========================================================================== */
 function updateProductRates() {
     const keys = Object.keys(interestMatrix).map(Number).sort((a, b) => a - b);
-    const minRate = keys.length ? interestMatrix[keys[0]] : 8;
-    const maxTenure = keys.length ? keys[keys.length - 1] : 12;
-    const pEl = document.getElementById('prodRatePersonal');
-    if (pEl) pEl.innerText = minRate + '%';
-    document.querySelectorAll('.product-meta-item strong').forEach(el => {
-        if (el.innerText.endsWith('M')) el.innerText = maxTenure + 'M';
+    if (!keys.length) return;
+
+    const minRate  = Number(interestMatrix[keys[0]]);
+    const maxTenure = keys[keys.length - 1];
+    const rateText = minRate.toFixed(2).replace(/\.00$/, '') + '%';
+    const tenText = maxTenure + 'M';
+
+    ['prodRatePersonal', 'prodRateBusiness', 'prodRateEmergency'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = rateText;
+    });
+    ['prodTenurePersonal', 'prodTenureBusiness', 'prodTenureEmergency'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = tenText;
     });
 }
 
 /* ==========================================================================
    FIREBASE SETTINGS LISTENERS
    ========================================================================== */
+
+/* Processing fee */
 db.ref('adminSettings/processingFee').on('value', snap => {
     if (snap.exists()) {
         const v = parseFloat(snap.val());
@@ -4587,26 +4398,71 @@ db.ref('adminSettings/processingFee').on('value', snap => {
         }
     }
 });
+
+/* Interest rates — loaded once from Firebase, with a safe fallback only when the node is absent. */
+interestRatesLoadPromise = new Promise((resolve, reject) => {
+    interestRatesLoadResolve = resolve;
+    interestRatesLoadReject = reject;
+});
+
 db.ref('adminSettings/interestMatrix').on('value', snap => {
-    if (snap.exists()) {
-        const val = snap.val();
-        const clean = {};
-        Object.keys(val).forEach(k => {
-            const num = parseFloat(val[k]);
-            const dur = parseInt(k, 10);
-            if (!isNaN(dur) && dur > 0 && !isNaN(num) && num >= 0) clean[dur] = num;
-        });
-        if (Object.keys(clean).length) {
-            interestMatrix = clean;
-            renderRatesStrip();
-            buildSimTenureOptions();
-            updateProductRates();
-            if (document.getElementById('tenureContainer') &&
-                document.getElementById('screen-application') &&
-                !document.getElementById('screen-application').classList.contains('hidden')) {
-                buildTenureCards();
-            }
+    try {
+        let effectiveMatrix = {};
+
+        if (snap.exists()) {
+            const val = snap.val() || {};
+            Object.keys(val).forEach(k => {
+                const dur = Number.parseInt(k, 10);
+                const rate = Number.parseFloat(val[k]);
+                if (Number.isInteger(dur) && dur > 0 &&
+                    Number.isFinite(rate) && rate >= 0 && rate <= 60) {
+                    effectiveMatrix[dur] = rate;
+                }
+            });
         }
+
+        /* Only use defaults when Firebase has no usable matrix. Never write defaults back automatically. */
+        if (!Object.keys(effectiveMatrix).length) {
+            effectiveMatrix = { ...DEFAULT_INTEREST_MATRIX };
+        }
+
+        interestMatrix = effectiveMatrix;
+        interestRatesLoaded = true;
+
+        renderRatesStrip();
+        buildSimTenureOptions();
+        updateProductRates();
+
+        const applicationScreen = document.getElementById('screen-application');
+        if (applicationScreen && !applicationScreen.classList.contains('hidden')) {
+            buildTenureCards();
+            if (appSelectedTenure && interestMatrix[appSelectedTenure] !== undefined) {
+                appSelectedInterest = Number(interestMatrix[appSelectedTenure]);
+            }
+            calcEMI();
+        }
+
+        if (interestRatesLoadResolve) {
+            interestRatesLoadResolve(interestMatrix);
+            interestRatesLoadResolve = null;
+            interestRatesLoadReject = null;
+        }
+    } catch (err) {
+        console.error('Interest matrix processing failed:', err);
+        if (interestRatesLoadReject) {
+            interestRatesLoadReject(err);
+            interestRatesLoadResolve = null;
+            interestRatesLoadReject = null;
+        }
+    }
+}, err => {
+    console.error('Interest rates read failed:', err);
+    interestRatesLoaded = false;
+    renderRatesStrip();
+    if (interestRatesLoadReject) {
+        interestRatesLoadReject(err);
+        interestRatesLoadResolve = null;
+        interestRatesLoadReject = null;
     }
 });
 
@@ -4617,6 +4473,7 @@ function openApplyMenu() {
     if (!activeUser) { Util.toast('Please sign in first.', 'error'); return; }
     startLoanFlow('Personal');
 }
+
 function startLoanFlow(type) {
     if (!activeUser) { Util.toast('Please sign in first.', 'error'); return; }
     appLoanType = type;
@@ -4639,7 +4496,6 @@ function startLoanFlow(type) {
     appSelectedTenure = null;
     appSelectedInterest = null;
 
-    /* Reset fee handling to default */
     appFeeMode = 'upfront';
     document.querySelectorAll('.fee-mode-card').forEach(c => {
         c.classList.toggle('selected', c.dataset.mode === 'upfront');
@@ -4650,31 +4506,43 @@ function startLoanFlow(type) {
     navigate('application');
     proceedToStep(1);
 }
+
 function buildTenureCards() {
     const container = document.getElementById('tenureContainer');
     if (!container) return;
+
+    if (!interestRatesLoaded) {
+        container.innerHTML = '<div class="text-muted fs-13">Loading interest rates from Firebase…</div>';
+        return;
+    }
+
     container.innerHTML = '';
-    const keys = Object.keys(interestMatrix).map(Number).sort((a, b) => a - b);
+    const keys = Object.keys(interestMatrix)
+        .map(Number)
+        .filter(Number.isFinite)
+        .sort((a, b) => a - b);
+
     if (!keys.length) {
         container.innerHTML = '<div class="text-muted fs-13">No tenure matrix configured.</div>';
         return;
     }
+
     keys.forEach(m => {
+        const rate = Number(interestMatrix[m]);
+        if (!Number.isFinite(rate)) return;
+
         const card = document.createElement('div');
         card.className = 'tenure-card';
         card.dataset.tenure = m;
         card.innerHTML = `
             <div class="tenure-dur">${m}M</div>
-            <div class="tenure-rate">${Number(interestMatrix[m]).toFixed(2)}%</div>
+            <div class="tenure-rate">${rate.toFixed(2)}%</div>
         `;
         card.onclick = () => selectTenure(m, card);
         container.appendChild(card);
     });
 }
 
-/* ==========================================================================
-   FEE MODE SELECTION
-   ========================================================================== */
 function selectFeeMode(mode, el) {
     appFeeMode = (mode === 'emi') ? 'emi' : 'upfront';
     document.querySelectorAll('.fee-mode-card').forEach(c => c.classList.remove('selected'));
@@ -4695,12 +4563,14 @@ function handleAgeChange() {
         document.getElementById('appGuardianPhone').value = '';
     }
 }
+
 function setFieldInvalid(id, invalid) {
     const el = document.getElementById(id);
     if (!el) return;
     const group = el.closest('.form-group');
     if (group) group.classList.toggle('invalid', !!invalid);
 }
+
 function proceedToStep(num) {
     if (num === 2) {
         const name = document.getElementById('appFullName').value.trim();
@@ -4743,6 +4613,7 @@ function proceedToStep(num) {
     const stepper = document.getElementById('appStepper');
     if (stepper) stepper.dataset.progress = num;
 }
+
 function verifyFormPIN() {
     const pin = document.getElementById('appPin').value.trim();
     if (!activeUser) { Util.toast('Session expired. Please sign in again.', 'error'); return; }
@@ -4750,20 +4621,32 @@ function verifyFormPIN() {
     if (String(pin) !== String(activeUser.pin)) { Util.toast('Authorization failed — PIN mismatch.', 'error'); return; }
     proceedToStep(3);
 }
+
 function selectTenure(months, cardEl) {
-    appSelectedTenure = months;
-    appSelectedInterest = Number(interestMatrix[months]);
+    if (!interestRatesLoaded) {
+        Util.toast('Interest rates are still loading. Please wait.', 'error');
+        return;
+    }
+
+    const tenure = Number(months);
+    const rate = Number(interestMatrix[tenure]);
+
+    if (!Number.isInteger(tenure) || tenure <= 0 || !Number.isFinite(rate) || rate < 0) {
+        Util.toast('Invalid interest rate for the selected tenure.', 'error');
+        return;
+    }
+
+    appSelectedTenure = tenure;
+    appSelectedInterest = rate;
+
     document.querySelectorAll('.tenure-card').forEach(c => c.classList.remove('selected'));
-    cardEl.classList.add('selected');
+    if (cardEl) cardEl.classList.add('selected');
     calcEMI();
 }
 
-/* ==========================================================================
-   EMI CALCULATION — FEE-MODE AWARE
-   ========================================================================== */
 function calcEMI() {
     const amountInput = document.getElementById('appAmount');
-    const amount = parseFloat(amountInput ? amountInput.value : 0) || 0;
+    const amount = Number.parseFloat(amountInput ? amountInput.value : 0) || 0;
 
     const feeEl  = document.getElementById('recFee');
     const feeLbl = document.getElementById('recFeeLabel');
@@ -4773,86 +4656,156 @@ function calcEMI() {
     const prinEl = document.getElementById('recPrincipal');
     const totEl  = document.getElementById('recTotal');
 
-    if (feeEl)  feeEl.innerText  = Util.formatINR(globalProcessingFee);
-    if (feeLbl) feeLbl.innerText = (appFeeMode === 'emi')
+    if (feeEl) feeEl.innerText = Util.formatINR(globalProcessingFee);
+    if (feeLbl) feeLbl.innerText = appFeeMode === 'emi'
         ? 'Processing Fee (Added to EMI)'
         : 'Processing Fee (Payable Upfront)';
 
     const blank = () => {
         if (prinEl) prinEl.innerText = '₹0';
-        if (emiEl)  emiEl.innerText  = '₹0';
-        if (intEl)  intEl.innerText  = '₹0';
-        if (subEl)  subEl.innerText  = '₹0';
-        if (totEl)  totEl.innerText  = '₹0';
+        if (emiEl) emiEl.innerText = '₹0';
+        if (intEl) intEl.innerText = '₹0';
+        if (subEl) subEl.innerText = '₹0';
+        if (totEl) totEl.innerText = '₹0';
     };
 
-    if (isNaN(amount) || amount <= 0 || !appSelectedTenure) {
+    if (!Number.isFinite(amount) || amount <= 0 || !appSelectedTenure ||
+        !interestRatesLoaded || !Number.isFinite(Number(appSelectedInterest))) {
         blank();
-        return { emi: 0, interest: 0, subtotal: 0, gross: 0 };
+        return { emi: 0, interest: 0, subtotal: 0, gross: 0, rate: 0 };
     }
 
-    const base = Util.calcEMI(amount, appSelectedInterest, appSelectedTenure);
-    const subtotal = base.total;                       /* principal + interest */
-    const gross    = subtotal + globalProcessingFee;   /* always the full outflow */
+    const rate = Number(appSelectedInterest);
+    const base = Util.calcEMI(amount, rate, appSelectedTenure);
 
-    let emi;
-    if (appFeeMode === 'emi') {
-        /* Fee is spread evenly across the tenure and collected with each EMI */
-        emi = Math.round(base.emi + (globalProcessingFee / appSelectedTenure));
-    } else {
-        /* Fee is settled upfront — EMI only covers principal + interest */
-        emi = base.emi;
+    if (!base.emi || !Number.isFinite(base.total) || !Number.isFinite(base.interest)) {
+        blank();
+        return { emi: 0, interest: 0, subtotal: 0, gross: 0, rate };
     }
+
+    const processingFee = Math.max(0, Number(globalProcessingFee) || 0);
+    const subtotal = base.total;
+    const gross = subtotal + processingFee;
+    const feePerMonth = processingFee / appSelectedTenure;
+    const emi = appFeeMode === 'emi'
+        ? Math.round(base.emi + feePerMonth)
+        : base.emi;
 
     if (prinEl) prinEl.innerText = Util.formatINR(amount);
-    if (emiEl)  emiEl.innerText  = Util.formatINR(emi);
-    if (intEl)  intEl.innerText  = Util.formatINR(base.interest);
-    if (subEl)  subEl.innerText  = Util.formatINR(subtotal);
-    if (totEl)  totEl.innerText  = Util.formatINR(gross);
+    if (emiEl) emiEl.innerText = Util.formatINR(emi);
+    if (intEl) intEl.innerText = Util.formatINR(base.interest);
+    if (subEl) subEl.innerText = Util.formatINR(subtotal);
+    if (totEl) totEl.innerText = Util.formatINR(gross);
 
-    return { emi: emi, interest: base.interest, subtotal: subtotal, gross: gross };
+    return {
+        emi,
+        interest: base.interest,
+        subtotal,
+        gross,
+        rate,
+        principal: amount,
+        tenure: appSelectedTenure,
+        processingFee,
+        feeMode: appFeeMode
+    };
+}
+
+async function waitForInterestRates() {
+    if (interestRatesLoaded) return interestMatrix;
+    if (!interestRatesLoadPromise) {
+        throw new Error('Interest rate service is not initialized.');
+    }
+    return await interestRatesLoadPromise;
+}
+
+function getFirebaseUid() {
+    return (auth.currentUser && auth.currentUser.uid) || '';
 }
 
 async function deploySmartContract() {
     const amountInput = document.getElementById('appAmount');
-    const amount = parseFloat(amountInput.value);
-    if (isNaN(amount) || amount <= 0) { Util.toast('Please enter a valid capital amount.', 'error'); return; }
-    if (!appSelectedTenure) { Util.toast('Please select a tenure matrix.', 'error'); return; }
-    const limit = getCreditLimit();
-    if (amount > limit) { Util.toast('Limit exceeded — maximum ' + Util.formatINR(limit) + '.', 'error'); return; }
+    const amount = Number.parseFloat(amountInput ? amountInput.value : 0);
 
-    const btn = document.getElementById('btnSignContract');
-    btn.disabled = true;
-    btn.innerHTML = '<span class="material-symbols-rounded">hourglass_top</span> Writing…';
-    Util.showLoad('Writing contract to ledger');
+    if (!activeUser) {
+        Util.toast('Session expired. Please sign in again.', 'error');
+        return;
+    }
+    if (!Number.isFinite(amount) || amount <= 0) {
+        Util.toast('Please enter a valid capital amount.', 'error');
+        return;
+    }
+
+    try {
+        await waitForInterestRates();
+    } catch (e) {
+        console.error('Interest rate load failed:', e);
+        Util.toast('Could not load interest rates from Firebase. Try again.', 'error');
+        return;
+    }
+
+    if (!appSelectedTenure || !Number.isFinite(Number(interestMatrix[appSelectedTenure]))) {
+        Util.toast('Please select a valid tenure matrix.', 'error');
+        return;
+    }
+
+    /* Re-read the selected rate from the live Firebase-backed matrix before saving. */
+    appSelectedInterest = Number(interestMatrix[appSelectedTenure]);
+
+    const limit = getCreditLimit();
+    if (amount > limit) {
+        Util.toast('Limit exceeded — maximum ' + Util.formatINR(limit) + '.', 'error');
+        return;
+    }
+
+    const uid = getFirebaseUid();
+    if (!uid) {
+        Util.toast('Secure Firebase session not found. Continue with Google and try again.', 'error');
+        return;
+    }
 
     const calcs = calcEMI();
+    if (!calcs.emi || !Number.isFinite(calcs.interest)) {
+        Util.toast('Unable to calculate the contract. Check amount, tenure and interest rate.', 'error');
+        return;
+    }
+
+    const btn = document.getElementById('btnSignContract');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-rounded">hourglass_top</span> Writing…';
+    }
+    Util.showLoad('Writing contract to ledger');
+
     const loanId = 'LN' + Date.now();
-    const age = parseInt(document.getElementById('appAge').value, 10);
-    const isMinor = !isNaN(age) && age < 18;
+    const age = Number.parseInt(document.getElementById('appAge').value, 10);
+    const isMinor = Number.isFinite(age) && age < 18;
     const nextDate = new Date();
     nextDate.setMonth(nextDate.getMonth() + 1);
     nextDate.setDate(2);
 
     const payload = {
-        loanId, accNo: activeUser.accNo,
+        loanId,
+        uid,
+        accNo: activeUser.accNo,
         name: document.getElementById('appFullName').value.trim(),
-        age, isMinor,
+        age,
+        isMinor,
         phone: document.getElementById('appPhone').value.trim(),
         email: document.getElementById('appEmail').value.trim(),
         address: document.getElementById('appAddress').value.trim(),
         guardianName: isMinor ? document.getElementById('appGuardianName').value.trim() : '',
         guardianEmail: isMinor ? document.getElementById('appGuardianEmail').value.trim() : '',
         guardianPhone: isMinor ? document.getElementById('appGuardianPhone').value.trim() : '',
-        type: appLoanType, amount,
+        type: appLoanType,
+        amount,
         tenure: appSelectedTenure,
         interestRate: appSelectedInterest,
         emi: calcs.emi,
         interestTotal: calcs.interest,
-        subtotal: calcs.subtotal,               /* principal + interest */
-        processingFee: globalProcessingFee,
-        feeMode: appFeeMode,                    /* 'upfront' | 'emi' */
-        totalPayable: calcs.gross,              /* principal + interest + fee */
+        subtotal: calcs.subtotal,
+        processingFee: calcs.processingFee,
+        feeMode: appFeeMode,
+        totalPayable: calcs.gross,
         status: 'Pending',
         isActive: false,
         completedEMIs: 0,
@@ -4860,74 +4813,132 @@ async function deploySmartContract() {
         latePayments: 0,
         appliedDate: new Date().toISOString(),
         nextEmiDate: nextDate.toISOString(),
-        creditScoreSnapshot: userCreditScore
+        creditScoreSnapshot: userCreditScore,
+        calculationVersion: 2
     };
 
     try {
-        await db.ref('loans/' + loanId).set(payload);
+        const loanRef = db.ref('loans/' + loanId);
+        await loanRef.set(payload);
+
+        /* Read-after-write verification: prevents a false success if the write did not persist. */
+        const verifySnap = await loanRef.once('value');
+        if (!verifySnap.exists()) {
+            throw new Error('Firebase write returned successfully but the contract could not be verified.');
+        }
+
+        const saved = verifySnap.val() || {};
+        if (Number(saved.interestTotal) !== Number(payload.interestTotal) ||
+            Number(saved.interestRate) !== Number(payload.interestRate) ||
+            Number(saved.tenure) !== Number(payload.tenure)) {
+            throw new Error('Saved contract failed financial-field verification.');
+        }
+
         Util.hideLoad();
         openModal('modal-success');
     } catch (err) {
-        console.error(err);
+        console.error('LOAN SAVE ERROR:', err);
         Util.hideLoad();
-        Util.toast('Routing error — contract not saved.', 'error');
+        const detail = err && (err.message || err.code) ? (err.message || err.code) : 'Unknown Firebase error';
+        Util.toast('Contract was not saved: ' + detail, 'error');
     } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<span class="material-symbols-rounded">draw</span> Sign &amp; Commit';
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<span class="material-symbols-rounded">draw</span> Sign &amp; Commit';
+        }
     }
 }
+
 function closeSuccessAndGoDashboard() {
     closeModal('modal-success');
     navigate('dashboard');
 }
 
 /* ==========================================================================
-   CUSTOMER LEDGER  (My Loans)
+   MY LOANS — filter + full-scan rendering
    ========================================================================== */
+function setMyLoansFilter(status, el) {
+    myLoansCurrentFilter = status;
+    document.querySelectorAll('#myLoansFilterBar .filter-chip').forEach(c => c.classList.remove('active'));
+    if (el) el.classList.add('active');
+    renderMyLoansTable(cachedUserLoans, myLoansCurrentFilter);
+}
+
+function updateMyLoansFilterCounts(rows) {
+    const list = Array.isArray(rows) ? rows : [];
+    const counts = { all: list.length, pending: 0, approved: 0, rejected: 0, completed: 0, settled: 0 };
+    list.forEach(l => {
+        const s = String(l.status || '').toLowerCase();
+        if (counts[s] !== undefined) counts[s]++;
+    });
+    Object.keys(counts).forEach(k => {
+        const el = document.getElementById('cnt-' + k);
+        if (el) el.innerText = counts[k];
+    });
+}
+
+function renderMyLoansTable(rows, filter) {
+    const tbody = document.getElementById('myLoansTableBody');
+    const countEl = document.getElementById('myLedgerCount');
+    if (!tbody) return;
+
+    const list = Array.isArray(rows) ? rows : [];
+    const filtered = (filter && filter !== 'all')
+        ? list.filter(l => String(l.status || '').toLowerCase() === filter.toLowerCase())
+        : list;
+
+    tbody.innerHTML = '';
+
+    if (!filtered.length) {
+        const isFiltered = filter && filter !== 'all';
+        tbody.innerHTML = `
+            <tr><td colspan="8">
+                <div class="empty-state">
+                    <span class="material-symbols-rounded">${isFiltered ? 'filter_alt_off' : 'description'}</span>
+                    <h4>${isFiltered ? 'No ' + Util.escape(filter) + ' contracts' : 'No contracts found'}</h4>
+                    <p>${isFiltered ? 'Try a different filter.' : 'Initiate a capital allocation to create your first contract.'}</p>
+                </div>
+            </td></tr>`;
+        if (countEl) countEl.innerText = '0 Contracts';
+        return;
+    }
+
+    filtered.forEach(l => {
+        const d = new Date(l.nextEmiDate);
+        const dueStr = (l.status === 'Completed' || l.status === 'Settled' || l.status === 'Rejected')
+            ? '—' : (isNaN(d.getTime()) ? '—' : d.toLocaleDateString('en-IN'));
+        const progress = (l.tenure - l.remainingEMIs) + '/' + l.tenure;
+        tbody.innerHTML += `
+            <tr>
+                <td data-label="Contract ID"><span class="cell-id">${Util.escape(l.loanId)}</span></td>
+                <td data-label="Capital">${Util.formatINR(l.amount)}</td>
+                <td data-label="Term">${Util.escape(l.tenure)}M</td>
+                <td data-label="Rate">${Number(l.interestRate || 0).toFixed(2)}%</td>
+                <td data-label="Cycle (EMI)">${Util.formatINR(l.emi)}</td>
+                <td data-label="Progress">${progress}</td>
+                <td data-label="Status"><span class="chip chip-${String(l.status || '').toLowerCase()}">${Util.escape(l.status)}</span></td>
+                <td data-label="Next Due">${dueStr}</td>
+            </tr>`;
+    });
+    if (countEl) countEl.innerText = filtered.length + (filtered.length === 1 ? ' Contract' : ' Contracts');
+}
+
 function fetchMyLedger() {
     if (!activeUser) return;
-    db.ref('loans').orderByChild('accNo').equalTo(activeUser.accNo).on('value', snap => {
-        const tbody = document.getElementById('myLoansTableBody');
-        const countEl = document.getElementById('myLedgerCount');
-        if (!tbody) return;
-        tbody.innerHTML = '';
-        let count = 0;
-
-        if (!snap.exists()) {
-            tbody.innerHTML = `
-                <tr><td colspan="8">
-                    <div class="empty-state">
-                        <span class="material-symbols-rounded">description</span>
-                        <h4>No contracts found</h4>
-                        <p>Initiate a capital allocation to create your first contract.</p>
-                    </div>
-                </td></tr>`;
-            if (countEl) countEl.innerText = '0 Contracts';
-            return;
-        }
+    db.ref('loans').on('value', snap => {
         const rows = [];
-        snap.forEach(child => rows.push(child.val()));
+        if (snap.exists()) {
+            snap.forEach(child => {
+                const l = child.val() || {};
+                if (String(l.accNo) === String(activeUser.accNo)) {
+                    rows.push(l);
+                }
+            });
+        }
         rows.sort((a, b) => new Date(b.appliedDate || 0) - new Date(a.appliedDate || 0));
-
-        rows.forEach(l => {
-            count++;
-            const d = new Date(l.nextEmiDate);
-            const dueStr = (l.status === 'Completed' || l.status === 'Settled' || l.status === 'Rejected')
-                ? '—' : (isNaN(d.getTime()) ? '—' : d.toLocaleDateString('en-IN'));
-            const progress = (l.tenure - l.remainingEMIs) + '/' + l.tenure;
-            tbody.innerHTML += `
-                <tr>
-                    <td data-label="Contract ID"><span class="cell-id">${Util.escape(l.loanId)}</span></td>
-                    <td data-label="Capital">${Util.formatINR(l.amount)}</td>
-                    <td data-label="Term">${Util.escape(l.tenure)}M</td>
-                    <td data-label="Rate">${Number(l.interestRate || 0).toFixed(2)}%</td>
-                    <td data-label="Cycle (EMI)">${Util.formatINR(l.emi)}</td>
-                    <td data-label="Progress">${progress}</td>
-                    <td data-label="Status"><span class="chip chip-${String(l.status || '').toLowerCase()}">${Util.escape(l.status)}</span></td>
-                    <td data-label="Next Due">${dueStr}</td>
-                </tr>`;
-        });
-        if (countEl) countEl.innerText = count + (count === 1 ? ' Contract' : ' Contracts');
+        cachedUserLoans = rows;
+        updateMyLoansFilterCounts(rows);
+        renderMyLoansTable(rows, myLoansCurrentFilter);
     });
 }
 
@@ -5311,25 +5322,71 @@ function addTenureToDraft() {
     Util.toast(dur + 'M tenure added to draft.', 'success');
 }
 async function saveInterestMatrix() {
+    const uid = getFirebaseUid();
+    if (!uid) {
+        Util.toast('Secure Firebase session not found. Sign in with the authorized Google admin account.', 'error');
+        return;
+    }
+
     const keys = Object.keys(draftMatrix);
-    if (!keys.length) { Util.toast('At least one tenure is required.', 'error'); return; }
+    if (!keys.length) {
+        Util.toast('At least one tenure is required.', 'error');
+        return;
+    }
+
+    const cleanMatrix = {};
+    for (const key of keys) {
+        const tenure = Number.parseInt(key, 10);
+        const rate = Number.parseFloat(draftMatrix[key]);
+        if (!Number.isInteger(tenure) || tenure < 1 || tenure > 60 ||
+            !Number.isFinite(rate) || rate < 0 || rate > 60) {
+            Util.toast('Invalid tenure/rate found in the matrix.', 'error');
+            return;
+        }
+        cleanMatrix[String(tenure)] = rate;
+    }
+
     Util.showLoad('Publishing rate matrix');
     try {
-        await db.ref('adminSettings/interestMatrix').set(draftMatrix);
+        const ref = db.ref('adminSettings/interestMatrix');
+        await ref.set(cleanMatrix);
+
+        const verify = await ref.once('value');
+        if (!verify.exists()) throw new Error('Firebase did not return the saved interest matrix.');
+
+        const saved = verify.val() || {};
+        const savedKeys = Object.keys(saved);
+        for (const key of Object.keys(cleanMatrix)) {
+            if (Number(saved[key]) !== Number(cleanMatrix[key])) {
+                throw new Error('Saved interest matrix failed verification for ' + key + 'M.');
+            }
+        }
+
+        interestMatrix = cleanMatrix;
+        interestRatesLoaded = true;
+        renderRatesStrip();
+        buildTenureCards();
+        buildSimTenureOptions();
+        updateProductRates();
+
         Util.hideLoad();
         closeModal('modal-rates');
-        Util.toast('Interest rate matrix published successfully.', 'success');
+        Util.toast('Interest rate matrix published and verified in Firebase.', 'success');
     } catch (err) {
-        console.error(err);
+        console.error('INTEREST MATRIX SAVE ERROR:', err);
         Util.hideLoad();
-        Util.toast('Failed to publish rate matrix.', 'error');
+        const detail = err && (err.message || err.code) ? (err.message || err.code) : 'Unknown Firebase error';
+        Util.toast('Interest matrix was not saved: ' + detail, 'error');
     }
 }
 function renderRatesStrip() {
     const strip = document.getElementById('ratesStrip');
     if (!strip) return;
     const keys = Object.keys(interestMatrix).map(Number).sort((a, b) => a - b);
-    if (!keys.length) { strip.innerHTML = '<div class="text-muted fs-13">No rates configured.</div>'; return; }
+    if (!keys.length) {
+        strip.innerHTML = '<div class="text-muted fs-13">' + (interestRatesLoaded ? 'No rates configured.' : 'Loading rates…') + '</div>';
+        return;
+    }
     strip.innerHTML = keys.map(k => `
         <div class="rate-pill">
             <div class="rate-pill-dur">${k} Month${k > 1 ? 's' : ''}</div>
@@ -5359,7 +5416,6 @@ function runRateSimulation() {
     document.getElementById('simInterest').innerText = Util.formatINR(calc.interest);
     document.getElementById('simTotal').innerText = Util.formatINR(calc.total);
 }
-
 function switchAdminTab(tab, btnEl) {
     currentAdminTab = tab;
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -5514,12 +5570,14 @@ function saveAdminConfig() {
 document.addEventListener('DOMContentLoaded', () => {
     navigate('login');
     toggleLoginMode('options');
+
+    renderRatesStrip();
     buildSimTenureOptions();
     updateProductRates();
     renderDashboardRecent([]);
+    updateMyLoansFilterCounts([]);
     setTimeout(() => updateScoreRing(283), 300);
 
-    /* Restore Google session if Firebase remembers a signed-in Google user */
     initializeFirebaseAuth();
 });
 </script>
